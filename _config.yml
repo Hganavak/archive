@@ -6,3 +6,9 @@ highlighter: rouge
 kramdown:
  input: GFM
  syntax_highlighter: rouge
+
+collections:
+  tutorials:
+    output: true
+  workshops:
+    output: true

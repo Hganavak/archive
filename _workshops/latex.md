@@ -1,7 +1,7 @@
 ---
 layout: workshop
 title: "UoA LaTeX Workshop"
-date: 2018
+date: 2018-10-08
 ---
 
 ## Key Workshop Objectives
