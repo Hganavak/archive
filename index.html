@@ -4,5 +4,40 @@ title: Sam Kavanagh, Developer
 ---
 <div class="blurb">
 	<h1>Hi there, I'm Sam Kavanagh!</h1>
-	<p>I'm a software developer currently working as a research programmer at the <em>Centre for eResearch</em> in Auckland, New Zealand<br /><a href="/about">Read more about my life...</a></p>
+	<h2>Welcome to my <i>'minimalist'</i> website</h2>
+	<p>
+		I'm a software developer currently working as a research programmer at the <a href="http://www.eresearch.auckland.ac.nz/" title="Centre for eResearch Homepage">Centre for eResearch</a> in Auckland, New Zealand.
+	</p>
+	<p>
+		<a href="/about">More about me.</a></p>
+	</p>
 </div><!-- /.blurb -->
+
+<div class="row">
+	<div class="three_column">
+		<h2>Blog</h2>
+		<ul class="blogs">
+			{% for post in site.posts %}
+				<li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="three_column">
+		<h2>Workshops</h2>
+		<ul class="workshops">
+			{% for workshop in site.workshops %}
+				<li><span>{{ workshop.date | date_to_string }}</span> » <a href="{{ workshop.url }}" title="{{ workshop.title }}">{{ workshop.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="three_column">
+		<h2>Tutorials</h2>
+		<ul class="tutorials">
+			{% for tutorial in site.tutorials %}
+				<li><span>{{ tutorial.date | date_to_string }}</span> » <a href="{{ tutorial.url }}" title="{{ tutorial.title }}">{{ tutorial.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
