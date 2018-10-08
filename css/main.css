@@ -28,8 +28,6 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    /* font-size: 1.5em; */
-    /* line-height: 1.4em; */
     color: #333;
 }
 footer {
@@ -55,12 +53,13 @@ code {
     border-radius: 5%;
     padding: 0 0.5em 0 0.5em
 }
-/***********************/
 
+/* Home Page Columns */
 .three_column {
     float: left;
     width: 33%;
 }
+
 /* Clear floats after the columns */
 .row:after {
     content: "";

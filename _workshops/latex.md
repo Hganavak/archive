@@ -53,9 +53,15 @@ My personal recommendations for desktop Latex editors:
 2. TeXmaker
 3. Texworks
 
-However a more recent development...
+However a more recent development in the Latex world is **web based** Latex editors. This is what we will be using today.
+
+## Overleaf
+Overleaf is a modern web based Latex editor that allows you to work on Latex documents anywhere in the world without needing to install any software, all you need is your browser (although you need an active Internet connection).
+
+<img src="/assets/workshops/latex/overleaf_homepage.png" alt="Overleaf Homepage" width="40%"/>
 
 ## Basic Latex
 ```tex
 \documentclass{article}
 ```
+
