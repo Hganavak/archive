@@ -58,10 +58,70 @@ However a more recent development in the Latex world is **web based** Latex edit
 ## Overleaf
 Overleaf is a modern web based Latex editor that allows you to work on Latex documents anywhere in the world without needing to install any software, all you need is your browser (although you need an active Internet connection).
 
-<img src="/assets/workshops/latex/overleaf_homepage.png" alt="Overleaf Homepage" width="40%"/>
+<img src="/assets/workshops/latex/overleaf_homepage.png" alt="Overleaf Homepage" width="50%"/>
+
+Because it is a web based tool, it also has some other helpful features that you typically don't get from desktop-based editors, the most useful of which are:
+
+- Live `recompiling`: Your changes are automatically reflected in the PDF preview as you're working on them
+- Collaboration: Overleaf allows you to share your Latex projects with other users. This is especially useful for working with co-authors and/or sharing your papers with your supervisors as you're working on them 
+
+Overleaf has a free plan. However for full features they charge a monthly fee. Half price plans are available to students. In my opinion the only major limting feature of the free plan is that it only allows you to share your document with a single collaborator. Provided this isn't a deal breaker, the free plan still provides heaps of features and allows you to create unlimited private projects. 
 
 ## Basic Latex
+
+Every Latex document is comprised of a mixture of Latex commands and your actual content. Almost all Latex commands follow the exact same structure:
+
 ```tex
-\documentclass{article}
+\command[optional arguments]{arguments}
 ```
 
+Note the backslash (`\`) that precedes commands. This is what lets Latex know that everything following the backslash (up until the next space) should be interpreted as being a Latex command, rather than just ordinary content.
+
+Almost all Latex commands take `arguments`. This is the information that you 'pass' to the command, to tell it what to do. For example:
+
+```tex
+This text would appear formatted normally, but \textbf{this text would appear bold}.
+```
+
+The above command would appear in your PDF as:
+
+<div class="output">
+This text would appear formatted normally, but <b>this text would appear bold</b>.
+</div>
+
+In the example above, the command `\textbf{}` tells Latex to **bold** anything that appears between the two curly-braces `{}`.
+
+<div class="note">
+The bf in <span class="manual-code">\textbf{}</span> stands for boldface, a technical term for bolded text. Similarly <span class="manual-code">\textit{}</span> makes text italic.
+</div>
+
+### Latex Document Structure
+Every Latex document follows the same structure:
+
+```
+Preamble Commands
+ - This is where you do things like specify:
+    - The document type: e.g. whether it's a book or a journal article, and one or two columns
+    - The document title and author(s)
+    - List any packages you want to use (more on this later)
+----
+Document Content
+- This is where you actually put the content of your document, and is generally divided into different chapters and/or sections, or in Latex terms 'environments'
+```
+
+In actual Latex, this is what it looks like:
+
+```tex
+\documentclass[twocolumn]{article}
+\title{My first Latex document}
+\author{Sam Kavangah}
+
+\begin{document}
+\maketitle
+This is the actual body of the document, this text would appear in the PDF.
+\end{document}
+```
+
+That above code is a **complete** and valid Latex document. That is all you need, Latex will take care of sorting out all the default margins and for you. It even generates a nice title, author, and date section for you based on the information you provided in the document `preamble` (i.e. the stuff that came before the `begin{document}` command).
+
+If you were to paste the above code into Overleaf, you wou
