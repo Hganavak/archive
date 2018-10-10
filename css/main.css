@@ -88,6 +88,8 @@ code {
     border-color:  hsl(29, 100%, 50%);
     position: relative;
     padding-left: 50px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .note:before {
@@ -138,6 +140,7 @@ code {
 /* These classes are used for toggle-able notes intended for instructors during workshops */
 
 .instructor_note {
+    display: none;
     background-color: hsl(322, 100%, 49%);
     border-style: solid;
     border-width: 2px;
