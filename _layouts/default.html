@@ -15,8 +15,6 @@
 			<script>
 				// Enable Automatic resizing of all textareas, and trigger the resize handlers
 				$(document).ready(function(){
-					$("textarea").autoResize();
-					$("textarea").trigger("keyup");
 
 					// Toggle instructor notes if url contains instructor parameter
 					let searchParams = new URLSearchParams(window.location.search);
@@ -24,6 +22,9 @@
 						console.log("You're an instructor!");
 						$(".instructor_note").css({"display": "flex"});
 					}
+
+					$("textarea").autoResize();
+					$("textarea").trigger("keyup");
 				});
 			</script>
 		</head>
