@@ -194,3 +194,162 @@ This text would be center-aligned!
 <div class="instructor_note">
 Demonstrate how whitespace works
 </div>
+
+You can nest environments within one another, however they must be `\begin{}` and `\end{}` in the correct order. For example, the Latex code below would generate an error:
+
+```tex
+\begin{document}
+\begin{center}
+This text would be center-aligned!
+\end{document}
+\end{center}
+```
+
+## Sections, Abstracts, and Chapters
+
+<textarea readonly class="instructor_note">
+\documentclass[twocolumn]{article}
+\title{My first Latex document}
+\author{Sam Kavanagh}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    In this article Sam tries his best to teach some Latex. Hopefully you find it useful.
+\end{abstract}
+
+\section{Introduction}
+This is the actual body of the document, this text would appear in the PDF.
+
+\section{Background}
+Sam used Latex in his own PhD, and he thinks it's pretty cool.
+
+\subsection{Research Questions}
+This research hopes to answer two primary research questions:
+
+\begin{enumerate}
+    \item Is Latex as cool as Sam thinks it is?
+    \item Is it worth the effort?
+\end{enumerate}
+
+\end{document}
+</textarea>
+
+Usually we don't write our articles as one big block of content, instead we divide it into different `chapters`, `sections`, and `subsections`. Although it seems logical to use `environments` for sectioning, this is because when you're potentially dealing with `subsections` and even `subsubsections` you can end up with chaotic looking code like this:
+
+```tex
+\begin{document}
+\begin{section}{Section One}
+...
+\begin{subsection}{Subsection One}
+...
+\begin{subsubsection}{Subsubsection One}
+...
+\end{subsubsection}
+\end{subsection}
+\end{section}
+\end{document}
+```
+
+Instead Latex has dedicated commands such as `\section{}` and `\chapter{}` to indicate the **beginning** of a new section, and these have no `\end{}` tag. For example:
+
+```tex
+\begin{document}
+\section{Introduction}
+This appears in the introduction section.
+\subsection{Research Questions}
+This text would appear in a subsection named '1.1 Research Questions'.
+\end{document}
+```
+
+<div class="note">
+<b>Exception: Abstracts</b>. The abstract section is an exception to the rule, because some <span class="manual-code">Latex class files</span> (which are basically just a list of commands that act as a style template for your documents, more on this soon) apply special formatting to the abstract section. Instead we use <span class="manual-code">\begin{abstract}</span> and <span class="manual-code">\end{abstract}</span>.
+</div>
+
+We'll take a look at working with larger documents now instead of articles. Go ahead and create a new blank project named 'thesis' and delete the automatically generated contents.
+
+<div class="instructor_note">
+Tell students to create a new blank project called 'Thesis' and to delete the automatically generated content.
+</div>
+
+## Organizing Bigger Documents
+Let's create a basic outline for our new thesis project and build on it from here.
+
+```tex
+\documentclass{report}
+\title{Sam's Latex Thesis}
+\author{Sam Kavanagh}
+
+\begin{document}
+\maketitle
+
+\chapter{Introduction}
+Welcome to my professional looking Latex thesis.
+
+\chapter{Background}
+Look, Latex puts this on a new page for me!
+
+\end{document}
+```
+
+One of the nice things about working with Latex is that you can easily split your content into different files (for example a different file for each chapter), and then have a single 'main' thesis file which combines all these files and outputs a single PDF. This makes life a lot easier when you start dealing with big documents like theses.
+
+Let's do that now. Create a new folder in your Latex project named `chapters`, and within the folder create 2 new files, `introduction.tex` and `background.tex`. Next we'll take the content corresponding to each of the chapters from our existing `main.tex` file, and place it in the appropriate file. For example, the file `background.tex` should now look like this:
+
+```tex
+\chapter{Background}
+Look, Latex puts this on a new page for me!
+```
+
+And your projects file structure should now look like this:
+
+<img src="/assets/workshops/latex/project_structure.png" alt="Project File Structure" class="screenshot" />
+
+## The \input{} Command
+In order to tell our `main.tex` file to grab the content from our new files, we simply use the `\input{}` command, and pass it the `path` to our new files. This path is *relative* to the location of the file that the command is in. For example, if we had a file named `methodology.tex` **within the same folder** as our `main.tex` file we would use the command `\input{"methodology.tex"}`.
+
+However, because we're nice and tidy Latex users, we put our chapters into the separate `chapters` folder, so we instead use the command `input{"chapters/introduction.tex"}` and `input{"chapters/background.tex"}`.
+
+<div class="note">
+The double quotes <span class="manual-code">"</span> are optional in this case, but are recommended because otherwise Latex doesn't play nice if you have spaces in your file names. 
+</div>
+
+<div class="note">
+You don't need to duplicate all of the preamble in your chapter files. The <span class="manual-code">\input{}</span> command takes all of the content from individual files and uses it to create one big <span class="manual-code">.tex</span> file, so from Latex's point of view nothing has changed.
+</div>
+
+Our `main.tex` file should now look like this:
+
+```tex
+\documentclass{report}
+\title{Sam's Latex Thesis}
+\author{Sam Kavanagh}
+
+\begin{document}
+\maketitle
+
+\input{"chapters/introduction.tex"}
+\input{"chapters/background.tex"}
+
+\end{document}
+```
+
+## Figures
+Most of our documents aren't going to be comprised solely of text, but will include various *figures* (e.g. graphs and images). Latex handles the placement and referencing of figures in text very well (although it might seem a little confusing at first), and it is one of the primary reasons people prefer it over Microsoft Word when dealing with large documents.
+
+There are many Latex `packages` (more on this later) that are able to **produce** beautiful professional looking graphs and figures figures by reading in your data, however these would require a workshop of their own. So for today we are going to assume we already have a figure that we have produced in another program, and we simply wish to include it in our document.
+
+<div class="note">
+If you <b>are</b> interested in Latex's figure plotting abilities, the <span class="manual-code">pgf</span> and <span class="manual-code">TikZ</span> packages. <a href="http://www.texample.net/tikz/examples/" title="PGF and TikZ Example Gallery">This webpage</a> provides an excellent gallery of what they are capable of, and the Latex code is included next to all the examples. 
+</div>
+
+## Footnotes
+In academic writing someting we use fairly often are footnotes. In Latex setting up a footnote is as simple as placing the command `\footnote{}` anywhere you want the marker to appear. Latex will take care of numbering and placing the footnote at the bottom of the page for you.
+
+Let's add a footnote to our `background.tex` file:
+
+```tex
+\chapter{Background}
+Look, Latex puts this on a new page\footnote{This is not the case with the article documentclass.} for me!
+```
