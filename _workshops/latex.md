@@ -505,3 +505,18 @@ If instead we want our figures to be numbered and appear on their own line (much
 Your introduction chapter should now look like this:
 
 <img src="/assets/workshops/latex/equation_environment.png" class="screenshot bordered" alt="Equation environment in our introduction chapter">
+
+## Comments
+One super handy feature of Latex is `comments`. Comments allow us to make notes to ourselves within our `.tex` files, that are simply ignored by Latex when building your document. You can use these to make reminders to yourself about what a particular line of Latex does, or to plan sections in advanced - and they will never appear in the PDF!  
+
+Commenting in Latex is done with the `%` character. Any text that appears after the `%` on a line is ignored. For example:
+
+```tex
+\section{Mathematical Motivation for Research}
+% In this chapter I'm going to give a quick intro about why Latex is cool, and prove it mathematically
+The happiness of Microsoft Word users as a function over time can be modeled by the function $y=-x+5$ while scientists have demonstrated that the happiness of \LaTeX can be modeled by the function $y=x^{2+y}+9001$.
+
+\begin{equation} % I should also consider investigating whether this equation even makes any sense
+    f(x_1, x_2) = \pi * (x_1 - x_2)
+\end{equation}
+```
