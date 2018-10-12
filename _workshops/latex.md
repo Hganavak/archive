@@ -273,6 +273,10 @@ We'll take a look at working with larger documents now instead of articles. Go a
 Tell students to create a new blank project called 'Thesis' and to delete the automatically generated content.
 </div>
 
+<div class="instructor_note">
+Tell the students to turn off autocomplete for learning purposes.
+</div>
+
 ## Organizing Bigger Documents
 Let's create a basic outline for our new thesis project and build on it from here.
 
@@ -307,9 +311,9 @@ And your projects file structure should now look like this:
 <img src="/assets/workshops/latex/project_structure.png" alt="Project File Structure" class="screenshot" />
 
 ## The \input{} Command
-In order to tell our `main.tex` file to grab the content from our new files, we simply use the `\input{}` command, and pass it the `path` to our new files. This path is *relative* to the location of the file that the command is in. For example, if we had a file named `methodology.tex` **within the same folder** as our `main.tex` file we would use the command `\input{"methodology.tex"}`.
+In order to tell our `main.tex` file to grab the content from our new files, we simply use the `\input{}` command, and pass it the `path` to our new files. This path is *relative* to the location of the file that the command is in. For example, if we had a file named `methodology.tex` **within the same folder** as our `main.tex` file we would use the command `\input{"methodology"}`.
 
-However, because we're nice and tidy Latex users, we put our chapters into the separate `chapters` folder, so we instead use the command `input{"chapters/introduction.tex"}` and `input{"chapters/background.tex"}`.
+However, because we're nice and tidy Latex users, we put our chapters into the separate `chapters` folder, so we instead use the command `input{"chapters/introduction"}` and `input{"chapters/background"}`.
 
 <div class="note">
 The double quotes <span class="manual-code">"</span> are optional in this case, but are recommended because otherwise Latex doesn't play nice if you have spaces in your file names. 
@@ -329,8 +333,8 @@ Our `main.tex` file should now look like this:
 \begin{document}
 \maketitle
 
-\input{"chapters/introduction.tex"}
-\input{"chapters/background.tex"}
+\input{"chapters/introduction"}
+\input{"chapters/background"}
 
 \end{document}
 ```
@@ -344,6 +348,122 @@ There are many Latex `packages` (more on this later) that are able to **produce*
 If you <b>are</b> interested in Latex's figure plotting abilities, the <span class="manual-code">pgf</span> and <span class="manual-code">TikZ</span> packages. <a href="http://www.texample.net/tikz/examples/" title="PGF and TikZ Example Gallery">This webpage</a> provides an excellent gallery of what they are capable of, and the Latex code is included next to all the examples. 
 </div>
 
+### Uploading our own figure to Overleaf
+I've gone ahead and created a simple graph for us to use as an example. Save a copy of the image to your personal computer by <a download="latex-vs-word.png" href="/assets/workshops/latex/latex-vs-word.png" title="Latex vs Word"> clicking here </a> (if the link doesn't work try <a href="/assets/workshops/latex/latex-vs-word.png" alt="Latex vs Word">this instead</a>). **Make sure you save the image somewhere you can find again!**
+
+Back in Overleaf, let's create a new folder to save our figures. `figures` seems like the logical choice here! Make sure you **don't** create this folder inside the `chapters` folder, to be safe try clicking the `main.tex` file before clicking the `New Folder` icon.
+
+After we have our new folder it's time to upload our existing figure. Click on the folder (so that it becomes highlight) and then click the `Upload` button and find the file we just downloaded.
+
+If it looks like your file hasn't uploaded, try clicking the little `>` (expand) icon to the left of the folder. After your all done your new project structure should look like this:
+
+<img src="/assets/workshops/latex/project_structure2.png" alt="Project File Structure" class="screenshot" />
+
+### The Figure Environment and Packages
+To include a figure in Latex we work with the `figure` environment.
+
+```tex
+\begin{figure}
+\end{figure}
+```
+
+Before we go any further it's important to point out that by default Latex doesn't provide much functionality for working with images (graphics), so it's about time we start working with our very first `package`!
+
+Packages are simply additional libraries that provide functionality **beyond what Latex can do by default**. To use a package in Latex is super easy, we just use the command `\usepackage{packagename}` in our documents `preamble`.
+
+Jump back to our `main.tex` file and insert the following command on the line immediately after the `\documentclass{}` command (i.e. line 2):
+
+```tex
+\usepackage{graphicx}
+```
+
+`graphicx` is a very popular modern package that provides an improved way of working with graphics in Latex, and allows us to use a new command: `\includegraphics{}`.
+
+Let's update our `background.tex` with the following content:
+
+```tex
+Latex has a steeper learning curve than Microsoft Word, but as the document grows it makes your life a lot easier!
+
+\begin{figure}
+    \includegraphics{"figures/latex-vs-word"}
+\end{figure}
+```
+
+That didn't work very well! Latex *does* include the figure just like we asked, however it makes no attempt to scale the image down to fit correctly, and tries to be helpful by putting the image on the next page (but we don't want that!).
+
+Time to work on improving our figure!
+
+### Scaling the figure
+Step 1. Let's get our image down to a size that's more manageable. The `\includegraphics{}` command takes many optional arguments, including `width`, `height`, and `scale` and these are always written in the format `key=value`, for example: `\includegraphics[width=300px]{"figures/latex-vs-word"}`. In our case `scale` should do the job. Update the existing command to look like the one below:
+
+```tex
+\includegraphics[scale=0.25]{"figures/latex-vs-word"}
+```
+
+### Image Placement
+Much better, however our whole figure is still on the wrong page. Thankfully the `\begin{figure}` also takes optional arguments, you will often use these to tell the Latex that you want the figure placed at the `t`op, `b`ottom, or simply right `h`ere on the page! Unlike most other normal commands, optional arguments to the `\begin{}` command come **after** the non-optional arguments. 
+
+Let's update our figure to tell it that we want the figure placed `h`ere.
+
+```tex
+\begin{figure}[h]
+```
+
+### Alignment
+We've already looked at the `center` environment, so let's go ahead and use that now to center our image on the page. Our figure code should now look like this:
+
+```tex
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[scale=0.25]{"figures/latex-vs-word"}
+    \end{center}
+\end{figure}
+```
+
+### Captions
+The last thing our figure needs is a caption, let's add one now with (unsurprisingly!) the `\caption{}` command. Add a new line after the `\includegraphics{}` command, and insert the following:
+
+```tex
+\caption{Latex document complexity vs time and effort.}
+```
+
+That's it! Your finished figure should look something like this:
+
+<img src="/assets/workshops/latex/figure_screenshot.png" alt="Screenshot of finished figure" class="screenshot bordered" />
+
+### Referencing our image
+After the `\end{figure}` environment let's add some text to refer to our snazzy new figure.
+
+```tex
+If you're still unsure about whether you want to use Microsoft Word or Latex, refer to Figure 2.1 for irrefutable evidence of Latex's superiority.
+```
+
+Typically when we're writing big documents we add and remove figures as it grows, and keeping track of the numbers of figures becomes a pain. Thankfully Latex provides functionality for referring to other parts of your document using a combination of the `\label{}` and `\ref{}` commands.
+
+These two commands work hand-in-hand: We use the `\label{}` command after any `figure`, `chapter`, `section` etc. to define a label that we can then refer to anywhere in our document using the `\ref{}` command.
+
+These labels can be called anything we want, but most people like to start the label name with `fig:`, `chap:`, `sec:` to make it easier to keep track of what they're referring to.
+
+Let's create a label for our figure.
+
+```tex
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[scale=0.25]{"figures/latex-vs-word"}
+        \caption{Latex document complexity vs time and effort.}
+        \label{fig:latexVsWord}
+    \end{center}
+\end{figure}
+```
+
+Now let's update the paragraph at the bottom of the page to use the `\ref{}` command, rather than doing it manually:
+
+```tex
+If you're still unsure about whether you want to use Microsoft Word or Latex, refer to Figure \ref{fig:latexVsWord} for irrefutable evidence of Latex's superiority.
+```
+
+That's it! From the readers point of view nothing has changed, but we can insert new figures before our referenced figure or even move the figure to an entirely new chapter and the reference number would automatically be updated. 
+
 ## Footnotes
 In academic writing someting we use fairly often are footnotes. In Latex setting up a footnote is as simple as placing the command `\footnote{}` anywhere you want the marker to appear. Latex will take care of numbering and placing the footnote at the bottom of the page for you.
 
@@ -353,3 +473,35 @@ Let's add a footnote to our `background.tex` file:
 \chapter{Background}
 Look, Latex puts this on a new page\footnote{This is not the case with the article documentclass.} for me!
 ```
+## Working with Equations
+Another reason many people use Latex for typesetting their documentation is its support for rendering mathematical equations.
+
+There are 2 main ways people do this: the `inline` and `display` math modes.
+
+### Inline Math
+Inline math is pretty self-explanatory, it is used when we want to display an equation in the same line as our current sentence. To do so, we use the `$` symbol to both open and close the mode.
+
+Let's add a new section to our `introduction.tex`:
+
+```tex
+\section{Mathematical Motivation for Research}
+The happiness of Microsoft Word users as a function over time can be modeled by the function $y=-x+5$ while scientists have demonstrated that the happiness of \LaTeX can be modeled by the function $y=x^2+9001$.
+```
+
+<div class="note">
+<b>Special Math Characters:</b> There's a lot of characters that get interpreted specially in math mode. In the example above we used the <span class="manual-code">^</span> (<span class="manual-code">superscript</span>) command to tell Latex that what comes after that should be a superscript (in our case an exponential). If we needed this to be several characters we would surround it in curly braces <span class="manual-code">{}</span> as with any other command. For example: <span class="manual-code">$y=x^{2+y}+9001$</span>.
+</div>
+
+## Display Math
+
+If instead we want our figures to be numbered and appear on their own line (much like a figure), we can instead use the `equation` environment. The way that we write equations remains unchanged from the `inline` style:
+
+```tex
+\begin{equation}
+    f(x_1, x_2) = \pi * (x_1 - x_2)
+\end{equation}
+```
+
+Your introduction chapter should now look like this:
+
+<img src="/assets/workshops/latex/equation_environment.png" class="screenshot bordered" alt="Equation environment in our introduction chapter">
