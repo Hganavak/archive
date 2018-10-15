@@ -617,3 +617,48 @@ Update our `main.tex` file with 2 new commands:
 ```
 
 Easy peasy! These lists will continue to update automatically as we add to our document.
+
+## The UoA Thesis Template
+This produces a thesis template compatible with the School of Graduate Studies style guide (2016).
+
+You can <a href="https://www.coursebuilder.cad.auckland.ac.nz/flexiblelearning/doctoral-skills-programme-hub/5_5_4.html" target="_blank">download it here.
+
+The download includes quite a lot of files, including a rather hefty documentation PDF which explains how to install and use it on different operating systems, as well as just a general Latex tutorial.
+
+Unless your department actually **requires** you to use this, you don't **have to**. However, even if you aren't required to use it, you might find that you like the look of the document it generates.
+
+---
+
+In order to use the template `class`, we first need to upload a file, `aucklandthesis.cls`, to the base folder of our project.
+
+There are a couple of changes we have to make to our `main.tex`, as well as *3* new commands to include which are used to format the thesis title page. These are noted in the comments (`%`) below:
+
+```tex
+\documentclass{aucklandthesis} % <- The new documentclass
+\usepackage{graphicx}
+
+\title{Sam's Latex Thesis}
+\author{Sam Kavanagh}
+
+\begin{document}
+
+\degreesought{Doctor of Philosophy} % <- These 3 commands are used to format the title page
+\degreediscipline{Computer Science} % <- These 3 commands are used to format the title page
+\degreecompletionyear{2018} % <- These 3 commands are used to format the title page
+
+\maketitle
+\tableofcontents
+\listoffigures
+
+\input{"chapters/introduction"}
+\input{"chapters/background"}
+
+\bibliographystyle{apalike} % <- The ACM style doesn't play well with the template
+\bibliography{references}
+
+\end{document}
+```
+
+That's all you need to get up and running with a basic version of the thesis template. You should see the fonts and general appearance of much of the document has changed.
+
+<img src="/assets/workshops/latex/template.png" title="Citation Example" class="screenshot bordered" />
