@@ -7,23 +7,16 @@ date: 2018-10-08
 <div class="instructor_note">Point everyone to this document and explain how it will be updated at the end of the day with any changes that are required after the workshop.</div>
 
 ## Key Workshop Objectives
+{:.no_toc}
 - Understand the basic structure of a Latex document
 - Understand the typical Latex workflow
 - Get you to a point where you feel confident using and experimenting with Latex on your own!
 
-## Workshop Overview
-- *Why* use Latex?
-- *How* Latex works (and the typical workflow)
-- Overleaf: What it is and why you might want to use it
-- Basic Latex structure
-- Working with sections, chapters etc.
-- Organizing your files
-- Figures
-- Math Mode
-- References and citations
-- UoA thesis template
-- Working with packages
-- Handy tools and links
+## Contents
+{:.no_toc}
+
+* A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
+{:toc}
 
 ## Why use Latex? What's wrong with Word?
 - Prevalence in academic literature
@@ -492,7 +485,7 @@ The happiness of Microsoft Word users as a function over time can be modeled by 
 <b>Special Math Characters:</b> There's a lot of characters that get interpreted specially in math mode. In the example above we used the <span class="manual-code">^</span> (<span class="manual-code">superscript</span>) command to tell Latex that what comes after that should be a superscript (in our case an exponential). If we needed this to be several characters we would surround it in curly braces <span class="manual-code">{}</span> as with any other command. For example: <span class="manual-code">$y=x^{2+y}+9001$</span>.
 </div>
 
-## Display Math
+### Display Math
 
 If instead we want our figures to be numbered and appear on their own line (much like a figure), we can instead use the `equation` environment. The way that we write equations remains unchanged from the `inline` style:
 
@@ -520,3 +513,107 @@ The happiness of Microsoft Word users as a function over time can be modeled by 
     f(x_1, x_2) = \pi * (x_1 - x_2)
 \end{equation}
 ```
+
+## Bibliographies and Citations
+Arguably **the** most common reason people like to use Latex is its ability to handle citations and generate References/Bibliography sections.
+
+This is all handled by a reference management software called `BibTeX` (which is almost always used together with Latex).
+
+### BibTeX
+Bibtex makes it easy to store all of your references in a tidy, consistent way. It does this by storing all your bibliography items in a separate `.bib` file. You can think of this as a sort of mini-database.
+
+It's important to remember that this is a separate system to Latex, so the syntax is a little different.
+
+Each entry in the `.bib` file has a `type` associated with it, such as `book`, `article`, or `conference`. These all start with the `@` symbol, for example `@Book`.
+
+For each entry we specify:
+- A `key`: This is what we will refer to in Latex to identify the entry that we want to cite
+- A list of fields: This is where we describe the entry (e.g. its `author`, `title` etc)
+
+Let's create a new file in the main (root) folder `references.bib` and paste in an example entry:
+
+```java
+@article{kavanagh2018,
+  title={Latex is Magical},
+  author={Kavanagh, Sam and White, Gandalf and Dumbledore, Albus},
+  journal={Themes in Magic and Wizardry Education},
+  volume={10},
+  pages={85--119},
+  year={2018}
+}
+```
+
+### Inserting the Bibliography Chapter
+Just because we've created a bibliography (`.bibtex`) file, Latex doesn't know yet that it's supposed to do anything with it.
+
+In order to tell Latex that we want to have a bibliography we use **2 commands**:
+
+```tex
+\bibliographystyle{}
+```
+
+This is where we specify the **style** of referencing we're using, e.g. ACM, APA, IEEE etc.
+
+The other command is simply
+
+```tex
+\bibliography{}
+```
+
+This is where we actually point to the bibtex file we want to use.
+
+Let's update our `main.tex` to tell it we want to use our new bibliography file using these 2 new commands:
+
+```tex
+...
+\input{"chapters/introduction"}
+\input{"chapters/background"}
+
+\bibliographystyle{acm}
+\bibliography{references}
+
+\end{document}
+```
+
+You should now see a 4th page added to our thesis document with the heading **Bibliography**.
+
+If you're wondering why there's nothing listed under the heading, it's because we haven't `cited` our entry anywhere in the document yet! Let's do that now.
+
+### Citations
+Previously we used the `\ref{}` command to refer to a label we defined elsewhere in the document. Citing works almost exactly the same way, except we use the `\cite{}` command to refer to the label (key) we defined for our entry in the `.bib` file.
+
+Let's add a new paragraph to the bottom of our `introduction.tex` file:
+
+```tex
+Existing research has demonstrated that a basic understanding of Latex allows its users to perform impressive feats of high level magic \cite{kavanagh2018}.
+```
+
+That's it! In the outputted PDF Latex will replace the `\cite{}` with a citation corresponding to the style we specified in the `\bibliographystyle{}` command. Because we're using the `acm` style your *Introduction* chapter should now look like this:
+
+<img src="/assets/workshops/latex/citation.png" title="Citation Example" class="screenshot bordered" />
+
+And even better, your *References* section should have been updated now that you cited something:
+
+<img src="/assets/workshops/latex/bibliography.png" title="Bibliography Example" class="screenshot bordered" />
+
+<div class="instructor_note">Demonstrate getting a BibTeX entry from Google Scholar.</div>
+
+Our thesis is looking pretty sweet now, but let's add a few more things to make it look more... thesis like?
+
+## Table of Contents and Figure List
+Although it doesn't make much sense for a document of this size, most thesis include both a table of contents and a list of figures.
+
+Setting all this up in Latex is so simple that I'm not even going to explain the commands.
+
+Update our `main.tex` file with 2 new commands:
+
+```tex
+...
+\begin{document}
+\maketitle
+\tableofcontents % <- Creates a table of contents
+\listoffigures % <- Creates a list of figures
+...
+```
+
+Easy peasy! These lists will continue to update automatically as we add to our document.
