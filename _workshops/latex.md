@@ -661,4 +661,86 @@ There are a couple of changes we have to make to our `main.tex`, as well as *3* 
 
 That's all you need to get up and running with a basic version of the thesis template. You should see the fonts and general appearance of much of the document has changed.
 
-<img src="/assets/workshops/latex/template.png" title="Citation Example" class="screenshot bordered" />
+<img src="/assets/workshops/latex/citation.png" title="Citation Example" class="screenshot bordered" />
+
+## Handy Tools
+- Have a question? It's probably already been asked before on the <a href="https://tex.stackexchange.com/" title="LaTeX Stack Exchange" target="_blank">TeX Stack Exchange</a>!
+- Wanting to make a table in Latex? Making them by hand is a pain. Instead try <a href="https://www.tablesgenerator.com/" title="LaTeX Table Generator" target="_blank">this table generator</a> to get up and running, and then tweak the code from there.
+- The `todonotes` package allows you to insert to-do items in your document, and provides a `\listofdodos` too. Check it out <a href="https://mirror.hmc.edu/ctan/macros/latex/contrib/todonotes/todonotes.pdf" title="The todonotes package" target="_blank">here</a>. This is super helpful for:
+    - Keeping track of future updates you need to make to documents
+    - Planning your sections in advance
+    - Annotating your documents so that your supervisors have a list they can quickly refer to in order to see any updates you've made
+
+## Finished Project Code
+<div id="tabs" style="width: 100%">
+  <ul>
+    <li><a href="#tabs-1">main.tex</a></li>
+    <li><a href="#tabs-2">chapters/background.tex</a></li>
+    <li><a href="#tabs-3">chapters/introduction.tex</a></li>
+    <li><a href="#tabs-4">references.bib</a></li>
+  </ul>
+  <pre id="tabs-1" style="overflow: auto; font-size: 13px;">
+\documentclass{aucklandthesis} % <- The new documentclass
+\usepackage{graphicx}
+
+\title{Sam's Latex Thesis}
+\author{Sam Kavanagh}
+
+\begin{document}
+
+\degreesought{Doctor of Philosophy} % <- These 3 commands are used to format the title page
+\degreediscipline{Computer Science}
+\degreecompletionyear{2018}
+
+\maketitle
+\tableofcontents
+\listoffigures
+
+\input{"chapters/introduction"}
+\input{"chapters/background"}
+
+\bibliographystyle{apalike} % <- ACM doesn't work well with the template
+\bibliography{references}
+
+\end{document}
+    </pre>
+  <pre id="tabs-2" style="overflow: auto; font-size: 13px;">
+\chapter{Background}
+Look, Latex puts this on a new page\footnote{This is not the case with the article documentclass.} for me!
+
+Latex has a steeper learning curve than Microsoft Word, but as the document grows it makes your life a lot easier!
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[scale=0.25]{"figures/latex-vs-word"}
+        \caption{Latex document complexity vs time and effort.}
+        \label{fig:latexVsWord}
+    \end{center}
+\end{figure}
+
+If you're still unsure about whether you want to use Microsoft Word or Latex, refer to Figure \ref{fig:latexVsWord} for irrefutable evidence of Latex's superiority.
+  </pre>
+  <pre id="tabs-3" style="overflow: auto; font-size: 13px;">
+\chapter{Introduction}
+Welcome to my professional looking Latex thesis.
+
+\section{Mathematical Motivation for Research}
+The happiness of Microsoft Word users as a function over time can be modeled by the function $y=-x+5$ while scientists have demonstrated that the happiness of \LaTeX can be modeled by the function $y=x^{2+y}+9001$.
+
+\begin{equation}
+    f(x_1, x_2) = \pi * (x_1 - x_2)
+\end{equation}
+
+Existing research has demonstrated that a basic understanding of Latex allows its users to perform impressive feats of high level magic \cite{kavanagh2018}.
+  </pre>
+  <pre id="tabs-4" style="overflow: auto; font-size: 13px;">
+@article{kavanagh2018,
+  title={Latex is Magical},
+  author={Kavanagh, Sam and White, Gandalf and Dumbledore, Albus},
+  journal={Themes in Magic and Wizardry Education},
+  volume={10},
+  pages={85--119},
+  year={2018}
+}
+  </pre>
+</div>
