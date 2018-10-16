@@ -744,3 +744,14 @@ Existing research has demonstrated that a basic understanding of Latex allows it
 }
   </pre>
 </div>
+
+# That's it, Well done!
+{:.no_toc}
+
+<img src="/assets/workshops/latex/gandalf.gif" title="Gandalf seeing Latex code" class="screenshot" />
+
+Hopefully you've seen the light, and realize the potential power of Latex once you get the hang of it. 
+
+If not... Well, I tried. Microsoft Word is still a thing I guess.
+
+<img src="/assets/workshops/latex/dumbledore.gif" title="Dumbledore seeing Word users" class="screenshot" />
