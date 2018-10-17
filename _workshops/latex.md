@@ -197,14 +197,14 @@ This text would be center-aligned!
 ```
 
 <div class="note">
-    <b>Whitespace</b>: Unlike Microsoft Word, Latex ignores whitespace (extra lines and spaces). You instead have to choose from the various Latex commands available to manually tell Latex to add additional whitespace. The <span class="manual-code">\medskip</span> command for example inserts a medium sized spacing between paragraphs.
+    <b>Whitespace</b>: Unlike Microsoft Word, Latex ignores whitespace (extra lines and spaces) in the editor. You instead have to choose from the various Latex commands available to manually tell Latex to add additional whitespace. The <span class="manual-code">\medskip</span> command for example inserts a medium sized spacing between paragraphs.
 </div>
 
 <div class="instructor_note">
 Demonstrate how whitespace works
 </div>
 
-You can nest environments within one another, however they must be `\begin{}` and `\end{}` in the correct order. For example, the Latex code below would generate an error:
+You can nest environments within one another, however they must `\begin{}` and `\end{}` in the correct order. For example, the Latex code below would generate an error:
 
 ```tex
 \begin{document}

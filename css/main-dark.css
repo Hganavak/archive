@@ -1,14 +1,15 @@
-@import url(colorful.css);
+@import url(colorful-dark.css);
 
 body {
     margin: 60px auto;
+    background-color: #061F2F;
+    color: white;
     width: 70%;
     line-height: 1.8em;
     font-family: "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
     font-weight: 300 !important;
     font-style: normal;
     font-size: 15px;
-    color: rgb(97,97,97);
     -webkit-font-smoothing: antialiased;
 }
 p {
@@ -27,7 +28,7 @@ nav ul li, footer ul li {
 a {
     text-decoration: none;
     /* color: #999; */
-    color: rgb(83, 148, 223);
+    color: rgb(92, 202, 245);
 }
 a:hover {
     text-decoration: underline;
@@ -51,12 +52,11 @@ ul.posts li {
 
 /* Code Snippet Styles */
 code {
-    color: brown;
+    color: yellow;
     font-size: 13px;
 }
 
 .highlight {
-    border-radius: 5%;
     padding: 0 0.5em 0 0.5em;
     /* Allow word wrapping in code */
     white-space: pre-wrap;       /* Since CSS 2.1 */
@@ -68,8 +68,14 @@ code {
 
 /* Code Output. Simply a box with the same color/style as code */
 .output {
-    background-color: hsla(54, 100%, 50%, 0.1);
-    border-radius: 5%;
+    background-color: #061F2F;
+    color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    border-style: solid;
+    border-width: 1px;
+    border-color:  hsl(54, 100%, 50%);
     font-size: 13px;
     padding: 0 0.5em 0 0.5em;
 }
@@ -77,13 +83,18 @@ code {
 .output:before {
     content: "Output: ";
     font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
+    font-weight: 700;
+    font-size: 15px;
 }
 
+.highlight code {
+    color: white;
+}
 /* Note boxes */
 /* Code Output. Simply a box with the same color/style as code */
 .note {
-    background-color: hsl(54, 100%, 95%);
+    background-color: #061F2F;
+    color: white;
     border-style: solid;
     border-width: 1px;
     border-color:  hsl(29, 100%, 50%);
@@ -106,9 +117,13 @@ code {
     background-repeat: no-repeat;
 }
 
+.note span.manual-code {
+    color: yellow;
+}
+
 /* Emulates the rouge style inline code highlighting within HTML parser */
 .manual-code {
-    color: brown;
+    color: rgb(255, 208, 0);
     font-family: monospace;
     font-size: 12px;
     padding-left: 0.2em;
@@ -177,31 +192,63 @@ textarea.instructor_note {
     width: 100%;
 }
 
-/**
- * Dark Theme
-*/
-.dark ~ body {
-        background-color: #12101f;
-        font-family: "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-        font-weight: 300 !important;
-        font-style: normal;
-        font-size: 15px;
-        color: white !important;
-        -webkit-font-smoothing: antialiased;
-}
-.dark.container {
-    color: white !important;
+/** Pretty Slider **/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 47px;
+  height: 19px;
 }
 
-.dark.note.p {
-    color: black !important;
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.dark.highlight {
-    background-color: hsla(255,255,255,1) !important;
-    color: white !important;
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
-.dark.code {
-    background-color: hsla(255,255,255,1) !important;
-    color: white !important;
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 0px;
+  bottom: 0px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(28px);
+  -ms-transform: translateX(28px);
+  transform: translateX(28px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 26px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

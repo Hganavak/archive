@@ -4,7 +4,7 @@
 			<title>{{ page.title }}</title>
 
 			<!-- Link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="{{ '/css/main.css' | prepend: site.baseurl }}">
+			<link id="theme" rel="stylesheet" type="text/css" href="{{ '/css/main.css' | prepend: site.baseurl }}">
 
 			<!-- Favicon -->
 			<link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}" >
@@ -36,6 +36,11 @@
 					$("textarea").trigger("keyup"); // Manually trigger the textbox resize script
 
 					$("#tabs").tabs(); // jQuery UI: Enable tabbed interface
+
+					$("button").click(function() {
+						$("head link#theme").attr("href", '/css/main-dark.css');
+					});
+
 				});
 			</script>
 		</head>
@@ -47,7 +52,14 @@
 	        		<li><a href="/assets/CV_Sam_Kavanagh.pdf">CV</a></li>
 	        		<li><a href="/blog">Blog</a></li>
 	        		<li><a href="/tutorials">Tutorials</a></li>
-	        		<li><a href="/workshops">Workshops</a></li>
+					<li><a href="/workshops">Workshops</a></li>
+					<li>
+						<label class="switch" style="float: right;">
+							<input type="checkbox" checked>
+							<span class="slider round"></span>
+						</label>
+					</li>
+	        		<!-- <li><button id="night-mode" style="float: right;">Night Mode</button></li> -->
 	    		</ul>
 			</nav>
 			<div class="container">
