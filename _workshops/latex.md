@@ -677,22 +677,27 @@ Easy peasy! These lists will continue to update automatically as we add to our d
 </p>
 </div>
 
-
 ## The UoA Thesis Template
 
 This produces a thesis template compatible with the School of Graduate Studies style guide (2016).
 
 You can <a href="https://www.coursebuilder.cad.auckland.ac.nz/flexiblelearning/doctoral-skills-programme-hub/5_5_4.html" target="_blank">download it here.
 
-The download includes quite a lot of files, including a rather hefty documentation PDF which explains how to install and use it on different operating systems, as well as just a general Latex tutorial.
+The download includes quite a lot of files, including a rather hefty documentation PDF which explains how to install and use the template on different operating systems, and even includes a basic Latex tutorial.
 
 Unless your department actually **requires** you to use this, you don't **have to**. However, even if you aren't required to use it, you might find that you like the look of the document it generates.
 
----
+### Using the Template in Overleaf
 
-In order to use the template `class`, we first need to upload a file, `aucklandthesis.cls`, to the base folder of our project.
+Once you've downloaded the `.zip` file, extract its contents somewhere that you can find again.
 
-There are a couple of changes we have to make to our `main.tex`, as well as *3* new commands to include which are used to format the thesis title page. These are noted in the comments (`%`) below:
+In order to use the template we need to use a Latex `class` file. In the folder you just extracted, within the `aucklandthesis` sub-folder, you will find a file named `aucklandthesis.cls`. Upload this file to the base folder of our Overleaf project.
+
+1. To tell Latex that we want to use this `.cls` file, all we have to do is change the `\documentclass{}` to `aucklandthesis`.
+2. The template also defines **3 new commands** `\degreesought{}`, `\degreediscipline{}`, and `\degreecompletionyear{}` which are used to format the thesis title page.
+3. I also recommend changing the `\bibliographystyle{}` as the template out of the box doesn't play so well with the `acm` style (it requires a little more fiddling, check out the template documentation if you're interested).
+
+These changes are noted by the comments (`%`) below:
 
 ```tex
 \documentclass{aucklandthesis} % <- The new documentclass
@@ -720,9 +725,11 @@ There are a couple of changes we have to make to our `main.tex`, as well as *3* 
 \end{document}
 ```
 
-That's all you need to get up and running with a basic version of the thesis template. You should see the fonts and general appearance of much of the document has changed.
+That's all you need to get up and running with a basic version of the thesis template. You should see the fonts and general appearance of much of the document has changed and looks **very snazzy**.
 
-<img src="/assets/workshops/latex/citation.png" title="Citation Example" class="screenshot bordered" />
+<img src="/assets/workshops/latex/template.png" title="Citation Example" class="screenshot bordered" />
+
+<img src="/assets/workshops/latex/gandalf.gif" title="Gandalf seeing Latex code" class="screenshot" />
 
 ## Handy Tools
 
@@ -732,6 +739,9 @@ That's all you need to get up and running with a basic version of the thesis tem
     - Keeping track of future updates you need to make to documents
     - Planning your sections in advance
     - Annotating your documents so that your supervisors have a list they can quickly refer to in order to see any updates you've made
+- <a href="https://uoa-eresearch.github.io/HackyHour/" title="UoA Hacky Hour" target="_blank">Hacky Hour</a>: A shared space where students and researchers can congregate to work on their research problems related to code, data, or digital tools in a social environment.
+    - Every Thursday from 3-4pm in Strata Cafe.
+    - There's also a <a href="http://uoacer.slack.com/" title="UoA Hacky Hour Slack Channel" target="_blank">#HackyHour</a> Slack Channel which is open to anyone!
 
 ## Finished Project Code
 
@@ -752,8 +762,8 @@ That's all you need to get up and running with a basic version of the thesis tem
 \begin{document}
 
 \degreesought{Doctor of Philosophy} % <- These 3 commands are used to format the title page
-\degreediscipline{Computer Science}
-\degreecompletionyear{2018}
+\degreediscipline{Computer Science} % <- These 3 commands are used to format the title page
+\degreecompletionyear{2018} % <- These 3 commands are used to format the title page
 
 \maketitle
 \tableofcontents
@@ -812,9 +822,9 @@ Existing research has demonstrated that a basic understanding of Latex allows it
 
 {:.no_toc}
 
-<img src="/assets/workshops/latex/gandalf.gif" title="Gandalf seeing Latex code" class="screenshot" />
+<img src="/assets/workshops/latex/harry_potter_wand.gif" title="Harry Potter discovering Latex" class="screenshot" />
 
-Hopefully you've seen the light, and realize the potential power of Latex once you get the hang of it. 
+Hopefully you've seen the light, and realize the potential power of Latex once you get the hang of it.
 
 If not... Well, I tried. Microsoft Word is still a thing I guess.
 
