@@ -4,14 +4,14 @@ title: "UoA LaTeX Workshop"
 date: 2018-10-08
 ---
 
-<div class="instructor_note">Point everyone to this document and explain how it will be updated at the end of the day with any changes that are required after the workshop.</div>
+<div class="instructor_note">Point everyone to this document and explain how it will be updated at the end of the day with any changes that are required after the workshop, and that they can follow along during the lesson and if we don't manage to get through everything today they can finish off at home.</div>
 
 ## Key Workshop Objectives
 {:.no_toc}
 
 - Understand the basic structure of a Latex document
 - Understand the typical Latex workflow
-- Get you to a point where you feel confident using and experimenting with Latex on your own!
+- To get you to a point where you feel confident using and experimenting with Latex on your own!
 
 ## Contents
 {:.no_toc}
@@ -22,29 +22,35 @@ date: 2018-10-08
 ## Why use Latex? What's wrong with Word?
 
 - Prevalence in academic literature
-- Working with large files
-- Professional looking typeset documents!
+- Working with large documents
+- Creating professional looking documents!
     - Equations easily in the various math modes
     - Tables, graphs and figures using `TikZ`, `PGF-Plots` vector graphics
-    - Can even automatically populate these graphs and figures using your existing research data (e.g. with `csv` files)
+    - Can even automatically populate graphs and figures using your existing research data (e.g. with `csv` files)
     - Working with non-Latin scripts (Arabic, Sanskrit etc.)
 - Not just used for academic literature
-    - Academic journal articles, books, CVs, presentations, posters
+    - Books, CVs, presentations, posters
     - Check out [the gallery here](https://www.overleaf.com/gallery/tagged/academic-journal) for all sorts of examples
+
+...And most importantly, impress your peers who think you have to be some crazy tech-wizard to actually **want** to write your documents in Latex.
+
+<img src="/assets/workshops/latex/voldemort_laughing.gif" alt="Voldemort Laughing" class="screenshot" />
 
 ## Typical Workflow
 
-Do your writing in a Latex `.tex` file + Bibliography `.bib` file *(optional)* → Run the files through a Latex `distribution` (sometimes called a `compiler`) → Outputs a PDF
+Do your writing in a Latex `.tex` file + Bibliography `.bib` file *(optional)* → Run the files through a Latex `distribution` (sometimes called a `compiler`) → LaTeX outputs a PDF
 
-This is a different way of working to WYSIWYG editors like Microsoft Word. Some people claim this allows you to focus more on your content than its appearance. On the other hand your writing now has Latex specific commands intermingled with it.
+This is a different way of working to WYSIWYG editors like Microsoft Word. Some people claim this allows you to focus more on your content, instead of its appearance. On the other hand your writing now has Latex specific commands intermingled with it.
 
 ## Latex Editors
 
 These are what you actually do your writing in. Because Latex is written in plain text, if you wanted to (and plenty of people do) you could use a simple text editor like Notepad to do your writing, and then run the Latex `distribution` (the software that takes all your Latex files and outputs a PDF) yourself.
 
-However, this is unnecessarily complicated and newer Latex editors provide lots of nice features like spell checking, code higlighting, and autocompletion.
+However, this is unnecessarily complicated and newer Latex editors provide lots of nice features like spell checking, code highlighting, and autocompletion.
 
-You *must* have a Latex distribution installed on your computer to be able to `build` your Latex files.  [MikTeX](https://miktex.org/) and [TeX Live](https://www.tug.org/texlive/) are by far the most popular. On most Linux distributions and Mac OS Latex comes preinstalled. Then go ahead and download the editor of your choosing.
+You *must* have a Latex distribution installed on your computer to be able to `build` your Latex files.  [MikTeX](https://miktex.org/) and [TeX Live](https://www.tug.org/texlive/) are by far the most popular. On most Linux distributions and Mac OS, Latex comes pre-installed. Once you've got a distribution, go ahead and download the editor of your choosing.
+
+<div class="note">For this workshop you don't need to install anything!</div>
 
 My personal recommendations for desktop Latex editors:
 
@@ -56,7 +62,7 @@ However a more recent development in the Latex world is **web based** Latex edit
 
 ## Overleaf
 
-Overleaf is a modern web based Latex editor that allows you to work on Latex documents anywhere in the world without needing to install any software, all you need is your browser (although you need an active Internet connection).
+<a href="http://overleaf.com" title="Overleaf" target="_blank">Overleaf</a> is a modern web based Latex editor that allows you to work on Latex documents anywhere in the world without needing to install any software, all you need is your browser (and an active Internet connection).
 
 <img src="/assets/workshops/latex/overleaf_homepage.png" alt="Overleaf Homepage" class="screenshot" />
 
@@ -65,12 +71,15 @@ Because it is a web based tool, it also has some other helpful features that you
 - Live `recompiling`: Your changes are automatically reflected in the PDF preview as you're working on them
 - Collaboration: Overleaf allows you to share your Latex projects with other users. This is especially useful for working with co-authors and/or sharing your papers with your supervisors as you're working on them
 
-Overleaf has a free plan. However for full features they charge a monthly fee. Half price plans are available to students. In my opinion the only major limting feature of the free plan is that it only allows you to share your document with a single collaborator. Provided this isn't a deal breaker, the free plan still provides heaps of features and allows you to create unlimited private projects.
+Overleaf has a free plan. However, for full features they charge a monthly fee. Half price plans are available for students. In my opinion, the only major limiting feature to the free plan is that it only allows you to share your document with a single collaborator. Provided this isn't a deal breaker, the free plan still provides heaps of features and allows you to create unlimited private projects.
 
 <div class="instructor_note">
 Demonstrate and make sure everyone can log in. Tell the students to make a new blank project and delete the autogenerated text.
 </div>
 
+<div class="instructor_note">
+Tell the students to turn off autocomplete for learning purposes.
+</div>
 ## Basic Latex
 
 <div class="instructor_note">Explain how Latex documents are a mixture of commands and content. Explain what commands look like.</div>
@@ -83,7 +92,7 @@ Every Latex document is comprised of a mixture of Latex commands and your actual
 
 Note the backslash (`\`) that precedes commands. This is what lets Latex know that everything following the backslash (up until the next space) should be interpreted as being a Latex command, rather than just ordinary content.
 
-Almost all Latex commands take `arguments`. This is the information that you 'pass' to the command, to tell it what to do. For example:
+Almost all Latex commands take `arguments`. This is the information that you 'pass' to the command to tell it what to do. For example:
 
 ```tex
 This text would appear formatted normally, but \textbf{this text would appear bold}.
@@ -129,13 +138,13 @@ This is the actual body of the document, this text would appear in the PDF.
 \end{document}
 ```
 
-That above code is a **complete** and valid Latex document. That is all you need! Latex will take care of sorting out all the default margins and for you. It even generates a nice title, author, and date section for you based on the information you provided in the document `preamble` (i.e. the stuff that came before the `begin{document}` command).
+That above code is a **complete** and valid Latex document. That is all you need! Latex will take care of sorting out all the default margins for you. It even generates a nice title, author, and date section for you based on the information you provided in the document `preamble` (i.e. the stuff that came before the `begin{document}` command).
 
 If you were to paste the above code into Overleaf, you would see the following output PDF:
 
 <img class="screenshot bordered"  src="/assets/workshops/latex/screenshot_first_document.png" alt="Screenshot First Document" />
 
-The text only goes halfway across the page because we specified that this was a `twocolumn` document in the following Latex command:
+The text only goes halfway across the page because we specified that this was a `twocolumn` document in the Latex command:
 
 ```tex
 \documentclass[twocolumn]{article}
@@ -179,7 +188,7 @@ Some commands have both *opening* and *closing* commands. These are generally re
 \end{document}
 ```
 
-All content within the opening and closing command will have some sort of styling applied to them. For example, the environment below centres text:
+All content within the opening and closing command will have some sort of styling applied to them. For example, the environment below `center`s text:
 
 ```tex
 \begin{center}
@@ -236,7 +245,7 @@ This research hopes to answer two primary research questions:
 \end{document}
 </textarea>
 
-Usually we don't write our articles as one big block of content, instead we divide it into different `chapters`, `sections`, and `subsections`. Although it seems logical to use `environments` for sectioning, this is because when you're potentially dealing with `subsections` and even `subsubsections` you can end up with chaotic looking code like this:
+Usually we don't write our articles as one big block of content, instead we divide it into different `chapters`, `sections`, and `subsections`. Although it seems logical to use `environments` for sectioning, we don't do this because when you're potentially dealing with `sections`, `subsections`, and even `subsubsections` you can end up with chaotic looking code like this:
 
 ```tex
 \begin{document}
@@ -273,9 +282,6 @@ We'll take a look at working with larger documents now instead of articles. Go a
 Tell students to create a new blank project called 'Thesis' and to delete the automatically generated content.
 </div>
 
-<div class="instructor_note">
-Tell the students to turn off autocomplete for learning purposes.
-</div>
 
 ## Organizing Bigger Documents
 
@@ -322,7 +328,7 @@ The double quotes <span class="manual-code">"</span> are optional in this case, 
 </div>
 
 <div class="note">
-You don't need to duplicate all of the preamble in your chapter files. The <span class="manual-code">\input{}</span> command takes all of the content from individual files and uses it to create one big <span class="manual-code">.tex</span> file, so from Latex's point of view nothing has changed.
+You don't need to duplicate all of the preamble in your chapter files. The <span class="manual-code">\input{}</span> command takes all of the content from individual files and uses it to create one big <span class="manual-code">.tex</span> file. So from Latex's point of view nothing has changed even though our commands are now split over 3 files.
 </div>
 
 Our `main.tex` file should now look like this:
@@ -345,10 +351,10 @@ Our `main.tex` file should now look like this:
 
 Most of our documents aren't going to be comprised solely of text, but will include various *figures* (e.g. graphs and images). Latex handles the placement and referencing of figures in text very well (although it might seem a little confusing at first), and it is one of the primary reasons people prefer it over Microsoft Word when dealing with large documents.
 
-There are many Latex `packages` (more on this later) that are able to **produce** beautiful professional looking graphs and figures figures by reading in your data, however these would require a workshop of their own. So for today we are going to assume we already have a figure that we have produced in another program, and we simply wish to include it in our document.
+There are many Latex `packages` (more on this later) that are able to **produce** beautiful professional looking graphs and figures by *reading in your data*, however these would require a workshop of their own. So for today we are going to assume we already have a figure that we have produced in another program, and we simply wish to include it in our document.
 
 <div class="note">
-If you <b>are</b> interested in Latex's figure plotting abilities, the <span class="manual-code">pgf</span> and <span class="manual-code">TikZ</span> packages. <a href="http://www.texample.net/tikz/examples/" title="PGF and TikZ Example Gallery">This webpage</a> provides an excellent gallery of what they are capable of, and the Latex code is included next to all the examples. 
+If you <b>are</b> interested in Latex's figure plotting abilities, check out the <span class="manual-code">pgf</span> and <span class="manual-code">TikZ</span> packages. <a href="http://www.texample.net/tikz/examples/" title="PGF and TikZ Example Gallery">This webpage</a> provides an excellent gallery of what they are capable of, and the corresponding Latex code is included next to all the examples.
 </div>
 
 ### Uploading our own figure to Overleaf
@@ -357,9 +363,9 @@ I've gone ahead and created a simple graph for us to use as an example. Save a c
 
 Back in Overleaf, let's create a new folder to save our figures. `figures` seems like the logical choice here! Make sure you **don't** create this folder inside the `chapters` folder, to be safe try clicking the `main.tex` file before clicking the `New Folder` icon.
 
-After we have our new folder it's time to upload our existing figure. Click on the folder (so that it becomes highlight) and then click the `Upload` button and find the file we just downloaded.
+After we have our new folder it's time to upload our existing figure. Click on the folder (so that it becomes highlighted) and then click the `Upload` button and find the file we just saved.
 
-If it looks like your file hasn't uploaded, try clicking the little `>` (expand) icon to the left of the folder. After your all done your new project structure should look like this:
+If it looks like your file hasn't uploaded, try clicking the little `>` (expand) icon to the left of the `figures` folder. After you're all done your new project structure should look like this:
 
 <img src="/assets/workshops/latex/project_structure2.png" alt="Project File Structure" class="screenshot" />
 
@@ -408,7 +414,11 @@ Step 1. Let's get our image down to a size that's more manageable. The `\include
 
 ### Image Placement
 
-Much better, however our whole figure is still on the wrong page. Thankfully the `\begin{figure}` also takes optional arguments, you will often use these to tell the Latex that you want the figure placed at the `t`op, `b`ottom, or simply right `h`ere on the page! Unlike most other normal commands, optional arguments to the `\begin{}` command come **after** the non-optional arguments. 
+Much better, however our whole figure is still on the wrong page. Thankfully the `\begin{figure}` also takes optional arguments, you will often use these to tell the Latex that you want the figure placed at the `t`op, `b`ottom, or simply right `h`ere on the page!
+
+<div class="note">
+Unlike most other normal commands, optional arguments to the <span class="manual-code">\begin{}</span> command come <b>after</b> the non-optional arguments.
+</div>
 
 Let's update our figure to tell it that we want the figure placed `h`ere.
 
@@ -452,7 +462,7 @@ Typically when we're writing big documents we add and remove figures as it grows
 
 These two commands work hand-in-hand: We use the `\label{}` command after any `figure`, `chapter`, `section` etc. to define a label that we can then refer to anywhere in our document using the `\ref{}` command.
 
-These labels can be called anything we want, but most people like to start the label name with `fig:`, `chap:`, `sec:` to make it easier to keep track of what they're referring to.
+These labels can be called anything we want, but most people like to start the label name with `fig:`, `chap:`, `sec:` etc. to make it easier to keep track of what they're referring to.
 
 Let's create a label for our figure.
 
@@ -472,11 +482,15 @@ Now let's update the paragraph at the bottom of the page to use the `\ref{}` com
 If you're still unsure about whether you want to use Microsoft Word or Latex, refer to Figure \ref{fig:latexVsWord} for irrefutable evidence of Latex's superiority.
 ```
 
-That's it! From the readers point of view nothing has changed, but we can insert new figures before our referenced figure or even move the figure to an entirely new chapter and the reference number would automatically be updated. 
+That's it! From the readers point of view nothing has changed, but we can insert new figures before our referenced figure or even move the figure to an entirely new chapter and the reference number would automatically be updated.
+
+The `\label{}` and `\ref{}` commands, and the ability to tell Latex exactly where you want a figure to be placed is a huge deal when you're working with theses. Unlike your poor Word-using friends, rearranging chapters, sections, figures, or breaking up your content into smaller files as you see fit becomes no big deal.
+
+<img src="/assets/workshops/latex/voldemort_hug.gif" alt="Latex and Word User" class="screenshot" />
 
 ## Footnotes
 
-In academic writing someting we use fairly often are footnotes. In Latex setting up a footnote is as simple as placing the command `\footnote{}` anywhere you want the marker to appear. Latex will take care of numbering and placing the footnote at the bottom of the page for you.
+In academic writing something we use fairly often is footnotes. In Latex setting up a footnote is as simple as placing the command `\footnote{}` anywhere you want the marker to appear. Latex will take care of numbering and placing the footnote at the bottom of the page for you.
 
 Let's add a footnote to our `background.tex` file:
 
@@ -484,9 +498,10 @@ Let's add a footnote to our `background.tex` file:
 \chapter{Background}
 Look, Latex puts this on a new page\footnote{This is not the case with the article documentclass.} for me!
 ```
+
 ## Working with Equations
 
-Another reason many people use Latex for typesetting their documentation is its support for rendering mathematical equations.
+Another reason many people use Latex for writing their documents is its support for rendering mathematical equations.
 
 There are 2 main ways people do this: the `inline` and `display` math modes.
 
@@ -507,7 +522,7 @@ The happiness of Microsoft Word users as a function over time can be modeled by 
 
 ### Display Math
 
-If instead we want our figures to be numbered and appear on their own line (much like a figure), we can instead use the `equation` environment. The way that we write equations remains unchanged from the `inline` style:
+If instead we want our figures to be numbered and appear on their own line (much like a figure), we can use the `equation` environment. The way that we write equations remains unchanged from the `inline` style. Let's add another equation to the bottom of our `introduction.tex`:
 
 ```tex
 \begin{equation}
@@ -539,7 +554,7 @@ The happiness of Microsoft Word users as a function over time can be modeled by 
 
 Arguably **the** most common reason people like to use Latex is its ability to handle citations and generate References/Bibliography sections.
 
-This is all handled by a reference management software called `BibTeX` (which is almost always used together with Latex).
+This is all handled by a reference management software called `BibTeX` (which comes bundled with Latex).
 
 ### BibTeX
 
@@ -550,8 +565,8 @@ It's important to remember that this is a separate system to Latex, so the synta
 Each entry in the `.bib` file has a `type` associated with it, such as `book`, `article`, or `conference`. These all start with the `@` symbol, for example `@Book`.
 
 For each entry we specify:
-- A `key`: This is what we will refer to in Latex to identify the entry that we want to cite
-- A list of fields: This is where we describe the entry (e.g. its `author`, `title` etc)
+- A `key`: This is what we will refer to in our Latex code to identify the entry that we want to cite (similar to a `\label{}`)
+- A list of fields: This is where we describe the entry (e.g. its `author`, `title` etc.)
 
 Let's create a new file in the main (root) folder `references.bib` and paste in an example entry:
 
@@ -601,7 +616,7 @@ Let's update our `main.tex` to tell it we want to use our new bibliography file 
 
 You should now see a 4th page added to our thesis document with the heading **Bibliography**.
 
-If you're wondering why there's nothing listed under the heading, it's because we haven't `cited` our entry anywhere in the document yet! Let's do that now.
+If you're wondering why there's nothing listed under the heading, it's because we haven't `cited` our bibtex entry anywhere in the document yet! Let's do that now.
 
 ### Citations
 
@@ -613,7 +628,7 @@ Let's add a new paragraph to the bottom of our `introduction.tex` file:
 Existing research has demonstrated that a basic understanding of Latex allows its users to perform impressive feats of high level magic \cite{kavanagh2018}.
 ```
 
-That's it! In the outputted PDF Latex will replace the `\cite{}` with a citation corresponding to the style we specified in the `\bibliographystyle{}` command. Because we're using the `acm` style your *Introduction* chapter should now look like this:
+That's it! In the outputted PDF Latex will replace the `\cite{}` with a citation corresponding to the style we specified in the `\bibliographystyle{}` command. Because we're using the `acm` style, your *Introduction* chapter should now look like this:
 
 <img src="/assets/workshops/latex/citation.png" title="Citation Example" class="screenshot bordered" />
 
@@ -623,13 +638,13 @@ And even better, your *References* section should have been updated now that you
 
 <div class="instructor_note">Demonstrate getting a BibTeX entry from Google Scholar.</div>
 
-Our thesis is looking pretty sweet now, but let's add a few more things to make it look more... thesis like?
+Our thesis is looking pretty awesome now, but before we're done let's add a couple more things to make it look even more professional.
 
 ## Table of Contents and Figure List
 
-Although it doesn't make much sense for a document of this size, most thesis include both a table of contents and a list of figures.
+Although it doesn't make much sense for a document of this size, most thesis include both a `Table of Contents` and a `List of Figures`.
 
-Setting all this up in Latex is so simple that I'm not even going to explain the commands.
+Setting all this up in Latex is so simple that I'm not even going to explain the commands!
 
 Update our `main.tex` file with 2 new commands:
 
@@ -643,6 +658,25 @@ Update our `main.tex` file with 2 new commands:
 ```
 
 Easy peasy! These lists will continue to update automatically as we add to our document.
+
+<div class="note">
+<p>
+    <b>Well done!!!</b>
+</p>
+<p>
+    If your department doesn't require you to use the <span class="manual-code">UoA thesis template</span>, then <b>congratulations, that's it!</b>
+</p>
+<p>
+    The project you just made looks professional, and is an excellent starting point to build upon for a real thesis!
+</p>
+<p>
+    <img src="/assets/workshops/latex/harry_potter_clapping.gif" title="Harry Potter Clapping" class="screenshot" />
+</p>
+<p>
+    Even if you're <b><i>not</i></b> required to use the <span class="manual-code">UoA thesis template</span>, I recommend you follow on until the end of the workshop as you'll also learn how to use Latex <span class="manual-code">class</span> files to apply predefined styles to your whole document.
+</p>
+</div>
+
 
 ## The UoA Thesis Template
 
