@@ -4,7 +4,7 @@ body {
     margin: 60px auto;
     background-color: #061F2F;
     color: white;
-    width: 70%;
+    width: 55%;
     line-height: 1.8em;
     font-family: "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
     font-weight: 300 !important;
@@ -22,12 +22,11 @@ nav ul, footer ul {
     font-weight: bold;
 }
 nav ul li, footer ul li {
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
 }
 a {
     text-decoration: none;
-    /* color: #999; */
     color: rgb(92, 202, 245);
 }
 a:hover {
@@ -193,17 +192,16 @@ textarea.instructor_note {
 }
 
 /** Pretty Slider **/
+
 .switch {
   position: relative;
-  display: inline-block;
-  width: 47px;
-  height: 19px;
 }
 
 .switch input { 
   opacity: 0;
-  width: 0;
-  height: 0;
+  width: 35px;
+  height: 19px;
+  vertical-align: middle;   
 }
 
 .slider {
@@ -214,16 +212,15 @@ textarea.instructor_note {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 19px;
-  width: 19px;
+  height: 17px;
+  width: 17px;
   left: 0px;
+  right: 0px;
   bottom: 0px;
   background-color: white;
   -webkit-transition: .4s;

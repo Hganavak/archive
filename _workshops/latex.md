@@ -24,7 +24,7 @@ date: 2018-10-08
 - Prevalence in academic literature
 - Working with large documents
 - Creating professional looking documents!
-    - Equations easily in the various math modes
+    - Equations can be created easily in the math mode
     - Tables, graphs and figures using `TikZ`, `PGF-Plots` vector graphics
     - Can even automatically populate graphs and figures using your existing research data (e.g. with `csv` files)
     - Working with non-Latin scripts (Arabic, Sanskrit etc.)
@@ -691,7 +691,7 @@ Unless your department actually **requires** you to use this, you don't **have t
 
 Once you've downloaded the `.zip` file, extract its contents somewhere that you can find again.
 
-In order to use the template we need to use a Latex `class` file. In the folder you just extracted, within the `aucklandthesis` sub-folder, you will find a file named `aucklandthesis.cls`. Upload this file to the base folder of our Overleaf project.
+In order to use the template we need to use a Latex `class` file. In the folder you just extracted, within the `aucklandthesis` sub-folder, you will find a file named `aucklandthesis.cls`. Upload this file to the root folder of our Overleaf project.
 
 1. To tell Latex that we want to use this `.cls` file, all we have to do is change the `\documentclass{}` to `aucklandthesis`.
 2. The template also defines **3 new commands** `\degreesought{}`, `\degreediscipline{}`, and `\degreecompletionyear{}` which are used to format the thesis title page.
