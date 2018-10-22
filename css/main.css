@@ -4,12 +4,10 @@ body {
     margin: 60px auto;
     width: 55%;
     line-height: 1.8em;
-    font-family: "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-    font-weight: 300 !important;
+    font-family: Arial, "Arial", Helvetica, "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", "Helvetica Neue", "Helvetica", "Roboto";
     font-style: normal;
     font-size: 15px;
     color: rgb(59, 59, 59);
-    -webkit-font-smoothing: antialiased;
 }
 p {
     margin: 0 0 10px;
@@ -72,12 +70,14 @@ code {
     border-radius: 5%;
     font-size: 13px;
     padding: 0 0.5em 0 0.5em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
 }
 
 .output:before {
     content: "Output: ";
     font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 /* Note boxes */
