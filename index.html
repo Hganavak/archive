@@ -24,19 +24,19 @@ title: Sam Kavanagh, Developer
 	</div>
 
 	<div class="three_column">
-		<h2>Workshops</h2>
-		<ul class="workshops">
-			{% for workshop in site.workshops %}
-				<li><span>{{ workshop.date | date_to_string }}</span> » <a href="{{ workshop.url }}" title="{{ workshop.title }}">{{ workshop.title }}</a></li>
+		<h2>Tutorials</h2>
+		<ul class="tutorials">
+			{% for tutorial in site.tutorials %}
+				<li><span>{{ tutorial.date | date_to_string }}</span> » <a href="{{ tutorial.url }}" title="{{ tutorial.title }}">{{ tutorial.title }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>
 
 	<div class="three_column">
-		<h2>Tutorials</h2>
-		<ul class="tutorials">
-			{% for tutorial in site.tutorials %}
-				<li><span>{{ tutorial.date | date_to_string }}</span> » <a href="{{ tutorial.url }}" title="{{ tutorial.title }}">{{ tutorial.title }}</a></li>
+		<h2>Workshops</h2>
+		<ul class="workshops">
+			{% for workshop in site.workshops %}
+				<li><span>{{ workshop.date | date_to_string }}</span> » <a href="{{ workshop.url }}" title="{{ workshop.title }}">{{ workshop.title }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>
