@@ -112,6 +112,8 @@ The bf in <span class="manual-code">\textbf{}</span> stands for boldface, a tech
 
 ### Latex Document Structure
 
+<div class="instructor_note">Explain preamble and document content.</div>
+
 Every Latex document follows the same structure:
 
 ```
@@ -126,6 +128,8 @@ Document Content
 ```
 
 In actual Latex, this is what it looks like:
+
+<div class="instructor_note">Code:</div>
 
 ```tex
 \documentclass[twocolumn]{article}
@@ -180,6 +184,7 @@ This is the actual body of the document, this text would appear in the PDF.
 </textarea>
 
 ## Latex Environments
+<div class="instructor_note">Explain how some commands have opening and closing tags. Demonstrate center</div>
 
 Some commands have both *opening* and *closing* commands. These are generally referred to as `environments`, and you have already seen an example above.
 
@@ -215,6 +220,11 @@ This text would be center-aligned!
 ```
 
 ## Sections, Abstracts, and Chapters
+
+<div class="instructor_note">Usually we don't write our articles as one big block of content...</div>
+<div class="instructor_note">Explain how we don't use environments for sections.</div>
+<div class="instructor_note">Abstract is the exception to the rule.</div>
+<div class="instructor_note">Code:</div>
 
 <textarea readonly class="instructor_note">
 \documentclass[twocolumn]{article}
@@ -284,8 +294,11 @@ Tell students to create a new blank project called 'Thesis' and to delete the au
 
 
 ## Organizing Bigger Documents
+<div class="instructor_note">Let's create a basic outline for our new thesis project and build on it from here.</div>
 
 Let's create a basic outline for our new thesis project and build on it from here.
+
+<div class="instructor_note">Code:</div>
 
 ```tex
 \documentclass{report}
@@ -304,7 +317,12 @@ Look, Latex puts this on a new page for me!
 \end{document}
 ```
 
+<div class="instructor_note">One of the nice things about working with Latex is that you can easily split your content into different files</div>
+
 One of the nice things about working with Latex is that you can easily split your content into different files (for example a different file for each chapter), and then have a single 'main' thesis file which combines all these files and outputs a single PDF. This makes life a lot easier when you start dealing with big documents like theses.
+
+<div class="instructor_note">Create chapters/, chapters/introduction.tex, chapters/background.tex</div>
+<div class="instructor_note">Move chapter content into appropriate file</div>
 
 Let's do that now. Create a new folder in your Latex project named `chapters`, and within the folder create 2 new files, `introduction.tex` and `background.tex`. Next we'll take the content corresponding to each of the chapters from our existing `main.tex` file, and place it in the appropriate file. For example, the file `background.tex` should now look like this:
 
@@ -318,6 +336,7 @@ And your projects file structure should now look like this:
 <img src="/assets/workshops/latex/project_structure.png" alt="Project File Structure" class="screenshot" />
 
 ## The \input{} Command
+<div class="instructor_note">Explain how we use \input{} to include the content of our files</div>
 
 In order to tell our `main.tex` file to grab the content from our new files, we simply use the `\input{}` command, and pass it the `path` to our new files. This path is *relative* to the location of the file that the command is in. For example, if we had a file named `methodology.tex` **within the same folder** as our `main.tex` file we would use the command `\input{"methodology"}`.
 
@@ -332,6 +351,8 @@ You don't need to duplicate all of the preamble in your chapter files. The <span
 </div>
 
 Our `main.tex` file should now look like this:
+
+<div class="instructor_note">Code:</div>
 
 ```tex
 \documentclass{report}
@@ -348,16 +369,24 @@ Our `main.tex` file should now look like this:
 ```
 
 ## Figures
+<div class="instructor_note">Most of our documents aren't going to be comprised solely of text...</div>
+<div class="instructor_note">Latex handles placement of figures well, but its different to word and confusing at first</div>
+<div class="instructor_note">You can use LaTeX to generate figures, complicated, using existing figure instead</div>
 
 Most of our documents aren't going to be comprised solely of text, but will include various *figures* (e.g. graphs and images). Latex handles the placement and referencing of figures in text very well (although it might seem a little confusing at first), and it is one of the primary reasons people prefer it over Microsoft Word when dealing with large documents.
 
 There are many Latex `packages` (more on this later) that are able to **produce** beautiful professional looking graphs and figures by *reading in your data*, however these would require a workshop of their own. So for today we are going to assume we already have a figure that we have produced in another program, and we simply wish to include it in our document.
+
+<div class="instructor_note">Show gallery</div>
 
 <div class="note">
 If you <b>are</b> interested in Latex's figure plotting abilities, check out the <span class="manual-code">pgf</span> and <span class="manual-code">TikZ</span> packages. <a href="http://www.texample.net/tikz/examples/" title="PGF and TikZ Example Gallery">This webpage</a> provides an excellent gallery of what they are capable of, and the corresponding Latex code is included next to all the examples.
 </div>
 
 ### Uploading our own figure to Overleaf
+
+<div class="instructor_note">I've created a figure for you use</div>
+<div class="instructor_note">Demonstrate creating a new figures/ folder, downloading + uploading image</div>
 
 I've gone ahead and created a simple graph for us to use as an example. Save a copy of the image to your personal computer by <a download="latex-vs-word.png" href="/assets/workshops/latex/latex-vs-word.png" title="Latex vs Word"> clicking here </a> (if the link doesn't work try <a href="/assets/workshops/latex/latex-vs-word.png" alt="Latex vs Word">this instead</a>). **Make sure you save the image somewhere you can find again!**
 
@@ -370,6 +399,9 @@ If it looks like your file hasn't uploaded, try clicking the little `>` (expand)
 <img src="/assets/workshops/latex/project_structure2.png" alt="Project File Structure" class="screenshot" />
 
 ### The Figure Environment and Packages
+
+<div class="instructor_note">We are using figure environment</div>
+<div class="instructor_note">Before we go further we need to use our firsst package as Latex doesn't work that well with images out of the box</div>
 
 To include a figure in Latex we work with the `figure` environment.
 
@@ -384,6 +416,8 @@ Packages are simply additional libraries that provide functionality **beyond wha
 
 Jump back to our `main.tex` file and insert the following command on the line immediately after the `\documentclass{}` command (i.e. line 2):
 
+<div class="instructor_note">Add \usepackage{graphics} to main.tex | Allows us to use \includegraphics{}</div>
+
 ```tex
 \usepackage{graphicx}
 ```
@@ -391,6 +425,8 @@ Jump back to our `main.tex` file and insert the following command on the line im
 `graphicx` is a very popular modern package that provides an improved way of working with graphics in Latex, and allows us to use a new command: `\includegraphics{}`.
 
 Let's update our `background.tex` with the following content:
+
+<div class="instructor_note">Code background.tex:</div>
 
 ```tex
 Latex has a steeper learning curve than Microsoft Word, but as the document grows it makes your life a lot easier!
@@ -400,6 +436,8 @@ Latex has a steeper learning curve than Microsoft Word, but as the document grow
 \end{figure}
 ```
 
+<div class="instructor_note">Works, but doesn't scale and puts in on the wrong page</div>
+
 That didn't work very well! Latex *does* include the figure just like we asked, however it makes no attempt to scale the image down to fit correctly, and tries to be helpful by putting the image on the next page (but we don't want that!).
 
 Time to work on improving our figure!
@@ -408,9 +446,13 @@ Time to work on improving our figure!
 
 Step 1. Let's get our image down to a size that's more manageable. The `\includegraphics{}` command takes many optional arguments, including `width`, `height`, and `scale` and these are always written in the format `key=value`, for example: `\includegraphics[width=300px]{"figures/latex-vs-word"}`. In our case `scale` should do the job. Update the existing command to look like the one below:
 
+<div class="instructor_note">Code:</div>
+
 ```tex
 \includegraphics[scale=0.25]{"figures/latex-vs-word"}
 ```
+
+<div class="instructor_note">But it's still on the wrong page</div>
 
 ### Image Placement
 
@@ -422,6 +464,9 @@ Unlike most other normal commands, optional arguments to the <span class="manual
 
 Let's update our figure to tell it that we want the figure placed `h`ere.
 
+<div class="instructor_note">Explain h, t, b etc</div>
+<div class="instructor_note">Code:</div>
+
 ```tex
 \begin{figure}[h]
 ```
@@ -429,6 +474,8 @@ Let's update our figure to tell it that we want the figure placed `h`ere.
 ### Alignment
 
 We've already looked at the `center` environment, so let's go ahead and use that now to center our image on the page. Our figure code should now look like this:
+
+<div class="instructor_note">Code:</div>
 
 ```tex
 \begin{figure}[h]
@@ -442,6 +489,7 @@ We've already looked at the `center` environment, so let's go ahead and use that
 
 The last thing our figure needs is a caption, let's add one now with (unsurprisingly!) the `\caption{}` command. Add a new line after the `\includegraphics{}` command, and insert the following:
 
+<div class="instructor_note">Code:</div>>
 ```tex
 \caption{Latex document complexity vs time and effort.}
 ```
@@ -450,13 +498,19 @@ That's it! Your finished figure should look something like this:
 
 <img src="/assets/workshops/latex/figure_screenshot.png" alt="Screenshot of finished figure" class="screenshot bordered" />
 
-### Referencing our image
+### Cross-Referencing our image
 
 After the `\end{figure}` environment let's add some text to refer to our snazzy new figure.
+
+<div class="instructor_note">Let's add some text to refer to our new figure, add this paragraph below the figure environment</div>
+<div class="instructor_note">Code:</div>
 
 ```tex
 If you're still unsure about whether you want to use Microsoft Word or Latex, refer to Figure 2.1 for irrefutable evidence of Latex's superiority.
 ```
+
+<div class="instructor_note">Explain the issue with keeping track of figure numbers</div>
+<div class="instructor_note">Explain the 2 commands \label and \ref</div>
 
 Typically when we're writing big documents we add and remove figures as it grows, and keeping track of the numbers of figures becomes a pain. Thankfully Latex provides functionality for referring to other parts of your document using a combination of the `\label{}` and `\ref{}` commands.
 
@@ -465,6 +519,8 @@ These two commands work hand-in-hand: We use the `\label{}` command after any `f
 These labels can be called anything we want, but most people like to start the label name with `fig:`, `chap:`, `sec:` etc. to make it easier to keep track of what they're referring to.
 
 Let's create a label for our figure.
+
+<div class="instructor_note">Code:</div>
 
 ```tex
 \begin{figure}[h]
@@ -477,6 +533,8 @@ Let's create a label for our figure.
 ```
 
 Now let's update the paragraph at the bottom of the page to use the `\ref{}` command, rather than doing it manually:
+
+<div class="instructor_note">Code:</div>
 
 ```tex
 If you're still unsure about whether you want to use Microsoft Word or Latex, refer to Figure \ref{fig:latexVsWord} for irrefutable evidence of Latex's superiority.
@@ -494,12 +552,17 @@ In academic writing something we use fairly often is footnotes. In Latex setting
 
 Let's add a footnote to our `background.tex` file:
 
+<div class="instructor_note">Code:</div>
+
 ```tex
 \chapter{Background}
 Look, Latex puts this on a new page\footnote{This is not the case with the article documentclass.} for me!
 ```
 
 ## Working with Equations
+
+<div class="instructor_note">Another reason many people use Latex for writing their documents is its support for rendering mathematical equations.</div>
+<div class="instructor_note">inline, display</div>
 
 Another reason many people use Latex for writing their documents is its support for rendering mathematical equations.
 
@@ -510,6 +573,8 @@ There are 2 main ways people do this: the `inline` and `display` math modes.
 Inline math is pretty self-explanatory, it is used when we want to display an equation in the same line as our current sentence. To do so, we use the `$` symbol to both open and close the mode.
 
 Let's add a new section to our `introduction.tex`:
+
+<div class="instructor_note">Code introduction.tex:</div>
 
 ```tex
 \section{Mathematical Motivation for Research}
@@ -523,6 +588,8 @@ The happiness of Microsoft Word users as a function over time can be modeled by 
 ### Display Math
 
 If instead we want our figures to be numbered and appear on their own line (much like a figure), we can use the `equation` environment. The way that we write equations remains unchanged from the `inline` style. Let's add another equation to the bottom of our `introduction.tex`:
+
+<div class="instructor_note">Code introduction.tex:</div>
 
 ```tex
 \begin{equation}
@@ -540,6 +607,8 @@ One super handy feature of Latex is `comments`. Comments allow us to make notes 
 
 Commenting in Latex is done with the `%` character. Any text that appears after the `%` on a line is ignored. For example:
 
+<div class="instructor_note">Code introduction.tex:</div>
+
 ```tex
 \section{Mathematical Motivation for Research}
 % In this chapter I'm going to give a quick intro about why Latex is cool, and prove it mathematically
@@ -552,11 +621,16 @@ The happiness of Microsoft Word users as a function over time can be modeled by 
 
 ## Bibliographies and Citations
 
+<div class="instructor_note">Arguably the most common reason people like to use Latex.</div>
+<div class="instructor_note">Done by reference management software called BibTeX that comes bundled with LaTeX.</div>
+
 Arguably **the** most common reason people like to use Latex is its ability to handle citations and generate References/Bibliography sections.
 
 This is all handled by a reference management software called `BibTeX` (which comes bundled with Latex).
 
 ### BibTeX
+
+<div class="instructor_note">Explain how BibTeX works.</div>
 
 Bibtex makes it easy to store all of your references in a tidy, consistent way. It does this by storing all your bibliography items in a separate `.bib` file. You can think of this as a sort of mini-database.
 
@@ -570,6 +644,9 @@ For each entry we specify:
 
 Let's create a new file in the main (root) folder `references.bib` and paste in an example entry:
 
+<div class="instructor_note">Create new file references.bib</div>
+<div class="instructor_note">Code:</div>
+
 ```java
 @article{kavanagh2018,
   title={Latex is Magical},
@@ -582,6 +659,9 @@ Let's create a new file in the main (root) folder `references.bib` and paste in 
 ```
 
 ### Inserting the Bibliography Chapter
+
+<div class="instructor_note">Latex doesn't know it needs to do anything with it yet, <b>need 2 commands</b></div>
+<div class="instructor_note">Explain \bibliographystyle and \bibliography</div>
 
 Just because we've created a bibliography (`.bibtex`) file, Latex doesn't know yet that it's supposed to do anything with it.
 
@@ -603,6 +683,8 @@ This is where we actually point to the bibtex file we want to use.
 
 Let's update our `main.tex` to tell it we want to use our new bibliography file using these 2 new commands:
 
+<div class="instructor_note">Code:</div>
+
 ```tex
 ...
 \input{"chapters/introduction"}
@@ -620,9 +702,13 @@ If you're wondering why there's nothing listed under the heading, it's because w
 
 ### Citations
 
+<div class="instructor_note">Explain how nothing appears until we \cite, and how it is similar to \ref</div>
+
 Previously we used the `\ref{}` command to refer to a label we defined elsewhere in the document. Citing works almost exactly the same way, except we use the `\cite{}` command to refer to the label (key) we defined for our entry in the `.bib` file.
 
 Let's add a new paragraph to the bottom of our `introduction.tex` file:
+
+<div class="instructor_note">Code introduction.tex:</div>
 
 ```tex
 Existing research has demonstrated that a basic understanding of Latex allows its users to perform impressive feats of high level magic \cite{kavanagh2018}.
@@ -647,6 +733,8 @@ Although it doesn't make much sense for a document of this size, most thesis inc
 Setting all this up in Latex is so simple that I'm not even going to explain the commands!
 
 Update our `main.tex` file with 2 new commands:
+
+<div class="instructor_note">Code:</div>
 
 ```tex
 ...
@@ -679,6 +767,9 @@ Easy peasy! These lists will continue to update automatically as we add to our d
 
 ## The UoA Thesis Template
 
+<div class="instructor_note">This produces a thesis template compatible with the School of Graduate Studies style guide (2016).</div>
+<div class="instructor_note">Explain how its a hefty zip file with a big PDF explaining exactly how to use it</div>
+
 This produces a thesis template compatible with the School of Graduate Studies style guide (2016).
 
 You can <a href="https://www.coursebuilder.cad.auckland.ac.nz/flexiblelearning/doctoral-skills-programme-hub/5_5_4.html" target="_blank">download it here.
@@ -689,15 +780,23 @@ Unless your department actually **requires** you to use this, you don't **have t
 
 ### Using the Template in Overleaf
 
+<div class="instructor_note">Get the students to download the zip, and extract aucklandthesis/aucklandthesis.cls</div>
+<div class="instructor_note">Explain what a class file does</div>
+<div class="instructor_note">Get the students to upload the file to the root folder of their project</div>
+
 Once you've downloaded the `.zip` file, extract its contents somewhere that you can find again.
 
 In order to use the template we need to use a Latex `class` file. In the folder you just extracted, within the `aucklandthesis` sub-folder, you will find a file named `aucklandthesis.cls`. Upload this file to the root folder of our Overleaf project.
+
+<div class="instructor_note">Explain the 3 steps required to get the template working:</div>
 
 1. To tell Latex that we want to use this `.cls` file, all we have to do is change the `\documentclass{}` to `aucklandthesis`.
 2. The template also defines **3 new commands** `\degreesought{}`, `\degreediscipline{}`, and `\degreecompletionyear{}` which are used to format the thesis title page.
 3. I also recommend changing the `\bibliographystyle{}` as the template out of the box doesn't play so well with the `acm` style (it requires a little more fiddling, check out the template documentation if you're interested).
 
 These changes are noted by the comments (`%`) below:
+
+<div class="instructor_note">Code:</div>
 
 ```tex
 \documentclass{aucklandthesis} % <- The new documentclass
