@@ -4,6 +4,70 @@ title: "UoA LaTeX Workshop"
 date: 2018-10-08
 ---
 
+---
+
+## Update: Friday, 26th of October Workshop
+
+### Answers to workshop questions:
+
+- How do I make the text `ragged right` instead of justified?
+
+```tex
+...
+\author{Sam Kavanagh}
+
+\begin{document}
+\raggedright % <-- This command here is all you need!
+\maketitle
+
+\tableofcontents
+\listoffigures
+...
+```
+
+- Can you put the document `preamble` in a separate file, just like our other `.tex` files?
+
+Yes! I made a separate file named  `preamble.tex`, moved the `preamble` from `main.tex` into it, and then just used `\input{}` like we did before:
+
+`preamble.tex`:
+
+```tex
+\documentclass{report}
+\usepackage{graphicx}
+
+\title{Sam's Latex Thesis}
+\author{Sam Kavanagh}
+```
+
+`main.tex`:
+
+```tex
+\input{"preamble"} % <-- Replaced the existing preamble with this
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\listoffigures
+
+\input{"chapters/introduction"}
+\input{"chapters/background"}
+
+\bibliographystyle{acm}
+\bibliography{references}
+
+\end{document}
+```
+
+### Other Notes:
+- Remember to turn `autocomplete` back on if you want to keep using Overleaf (click the menu in the top left corner)
+- [This is the section we got up to](#the-uoa-thesis-template) if you would like to finish the workshop on your own. The only thing left is getting set up with the UoA LaTeX Template.
+- Don't forget to check out the [handy tools](#handy-tools) I mentioned at the end of the workshop, especially **Hacky Hour**!
+
+Hope you all enjoyed the workshop, and feel free to email me on <a href="mailto:s.kavanagh@auckland.ac.nz">s.kavanagh@auckland.ac.nz</a> if you have any LaTeXy questions!
+
+---
+
 <div class="instructor_note">Point everyone to this document and explain how it will be updated at the end of the day with any changes that are required after the workshop, and that they can follow along during the lesson and if we don't manage to get through everything today they can finish off at home.</div>
 
 ## Key Workshop Objectives
