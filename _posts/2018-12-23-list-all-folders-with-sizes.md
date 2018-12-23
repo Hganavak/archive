@@ -7,11 +7,13 @@ tags: bash
 
 ## Douche (Mnemonic)
 
-```du -sch */ * | sort -h```
+```shell
+du -sch */ * | sort -h
+```
 
 ### Example output:
 
-```
+```shell
 [sam@samantha ~] λ  du -sch */ * | sort -h
 4.0K    dotfiles/
 4.0K    Music/
