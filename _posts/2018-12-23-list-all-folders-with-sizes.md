@@ -9,7 +9,7 @@ tags: bash
 
 ```du -sch */ * | sort -h```
 
-### Example output
+### Example output:
 
 ```
 [sam@samantha ~] λ  du -sch */ * | sort -h
