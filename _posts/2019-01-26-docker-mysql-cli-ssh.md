@@ -24,4 +24,5 @@ sql() {
                 "server2") ssh -t user@server2.com 'source /path/to/mysql/credentials.env; ip=$(sudo docker inspect mysql_docker_img | jq --raw-output .[].NetworkSettings.Networks.docker_network_name.IPAddress); mysql -h $ip -P3306 -u root -p$DB_MYSQL_PASSWORD';;
                 "server3") ssh -t user@server3.com 'source /path/to/mysql/credentials.env; ip=$(sudo docker inspect mysql_docker_img | jq --raw-output .[].NetworkSettings.Networks.docker_network_name.IPAddress); mysql -h $ip -P3306 -u root -p$DB_MYSQL_PASSWORD';;
         esac
-}```
+}
+```
