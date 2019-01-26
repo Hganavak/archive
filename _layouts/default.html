@@ -4,7 +4,7 @@
 			<title>{{ page.title }}</title>
 
 			<!-- Main stylesheet, set dynamically with jQuery below -->
-			<link id="theme" rel="stylesheet" type="text/css" href="/css/main.css">
+			<link id="theme" rel="stylesheet" type="text/css">
 
 			<!-- Favicon -->
 			<link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}" >
@@ -31,7 +31,7 @@
 				// Enable Automatic resizing of all textareas, and trigger the resize handlers
 				$(document).ready(function(){
 
-					/*
+					
 					// Set the stylesheet to dark/standard if the Cookie is set
 					if(Cookies.get('theme-stylesheet') == 'main-dark') {
 						$("#night-toggle").prop('checked', true);
@@ -39,7 +39,7 @@
 					} else {
 						$("head link#theme").attr("href", '/css/main.css');
 					}
-					*/
+					
 
 					// Toggle instructor notes if url contains instructor parameter
 					let searchParams = new URLSearchParams(window.location.search);
@@ -53,7 +53,7 @@
 
 					$("#tabs").tabs(); // jQuery UI: Enable tabbed interface
 
-					/*
+					
 					$("#night-toggle").click(function() {
 						if(Cookies.get('theme-stylesheet')) {
 							$("head link#theme").attr("href", '/css/main.css');
@@ -63,7 +63,7 @@
 							$("head link#theme").attr("href", '/css/main-dark.css');
 						}
 					});
-					*/
+					
 				});
 			</script>
 		</head>
@@ -76,14 +76,14 @@
 	        		<li><a href="/blog">Blog</a></li>
 	        		<li><a href="/tutorials">Tutorials</a></li>
 					<li><a href="/workshops">Workshops</a></li>
-<!--					<li style="float: right;">
+					<li style="float: right;">
 						<i class="fa fa-sun-o" aria-hidden-="true"></i>
 							<label class="switch">
 								<input id="night-toggle" type="checkbox">
 								<span class="slider round"></span>
 							</label>
 						&nbsp;<i class="fa fa-moon-o" aria-hidden-="true"></i>
-					</li>-->
+					</li>
 	    		</ul>
 			</nav>
 			<div class="container">
