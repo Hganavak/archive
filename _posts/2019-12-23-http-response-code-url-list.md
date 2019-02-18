@@ -7,7 +7,7 @@ tags: bash curl xargs
 
 ## Command
 ```shell
-λ cat list | xargs -i curl -m5 -LI {} -o /dev/null -w '%{http_code} %{url_effective}\n' -s
+cat list | xargs -i curl -m5 -LI {} -o /dev/null -w '%{http_code} %{url_effective}\n' -s
 ```
 
 ### Example output:
