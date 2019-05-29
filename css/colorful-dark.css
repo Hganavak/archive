@@ -52,6 +52,7 @@
 .highlight .sx { color: #e6db74 } /* Literal.String.Other */
 .highlight .sr { color: #e6db74 } /* Literal.String.Regex */
 .highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .s1 { background-color: transparent } /* Literal.String.Single*/
 .highlight .s2 { background-color: transparent } /* Literal.String.Double */
 .highlight .se { background-color: transparent } /* Literal.String.Double */
 .highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
