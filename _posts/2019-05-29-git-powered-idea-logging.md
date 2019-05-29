@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Idea logging script"
+title: "Git-powered idea logging"
 date: 2019-05-29
 tags: bash
 ---
