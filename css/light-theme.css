@@ -1,16 +1,18 @@
-@import url(colorful-dark.css);
+@import url(colorful.css);
+
+html {
+    opacity: 1;
+}
 
 body {
+    background-color: #fff;
     margin: 60px auto;
-    background-color: #061F2F;
-    color: white;
     width: 55%;
     line-height: 1.8em;
-    font-family: "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-    font-weight: 300 !important;
+    font-family: Arial, "Arial", Helvetica, "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", "Helvetica Neue", "Helvetica", "Roboto";
     font-style: normal;
     font-size: 15px;
-    -webkit-font-smoothing: antialiased;
+    color: rgb(59, 59, 59);
 }
 p {
     margin: 0 0 10px;
@@ -27,7 +29,8 @@ nav ul li, footer ul li {
 }
 a {
     text-decoration: none;
-    color: rgb(92, 202, 245);
+    /* color: #999; */
+    color: rgb(83, 148, 223);
 }
 a:hover {
     text-decoration: underline;
@@ -52,11 +55,12 @@ ul.posts li {
 
 /* Code Snippet Styles */
 code {
-    color: yellow;
+    color: brown;
     font-size: 13px;
 }
 
 .highlight {
+    border-radius: 5%;
     padding: 0 0.5em 0 0.5em;
     /* Allow word wrapping in code */
     white-space: pre-wrap;       /* Since CSS 2.1 */
@@ -68,33 +72,24 @@ code {
 
 /* Code Output. Simply a box with the same color/style as code */
 .output {
-    background-color: #061F2F;
-    color: white;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    margin-bottom: 1em;
-    border-style: solid;
-    border-width: 1px;
-    border-color:  hsl(54, 100%, 50%);
-    font-size: 13px;
+    background-color: hsla(54, 100%, 50%, 0.1);
+    border-radius: 5%;
+    font-size: 15px;
     padding: 0 0.5em 0 0.5em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
 }
 
 .output:before {
     content: "Output: ";
     font-family: 'Courier New', Courier, monospace;
-    font-weight: 700;
     font-size: 15px;
 }
 
-.highlight code {
-    color: white;
-}
 /* Note boxes */
 /* Code Output. Simply a box with the same color/style as code */
 .note {
-    background-color: #061F2F;
-    color: white;
+    background-color: hsl(54, 100%, 95%);
     border-style: solid;
     border-width: 1px;
     border-color:  hsl(29, 100%, 50%);
@@ -117,13 +112,9 @@ code {
     background-repeat: no-repeat;
 }
 
-.note span.manual-code {
-    color: yellow;
-}
-
 /* Emulates the rouge style inline code highlighting within HTML parser */
 .manual-code {
-    color: rgb(255, 208, 0);
+    color: brown;
     font-family: monospace;
     font-size: 12px;
     padding-left: 0.2em;
@@ -212,7 +203,7 @@ textarea.instructor_note {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #c3e4f7;
 }
 
 .slider:before {
@@ -223,7 +214,7 @@ textarea.instructor_note {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: white;
+  background-color: #4fa1d0;
   -webkit-transition: .4s;
   transition: .4s;
 }

@@ -4,7 +4,8 @@
 			<title>{{ page.title }}</title>
 
 			<!-- Main stylesheet, set dynamically with jQuery below -->
-			<link id="theme" rel="stylesheet" type="text/css" href="/css/main.css">
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			<link id="theme" rel="stylesheet" type="text/css">
 
 			<!-- Favicon -->
 			<link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}" >
@@ -31,17 +32,6 @@
 				// Enable Automatic resizing of all textareas, and trigger the resize handlers
 				$(document).ready(function(){
 
-				/*	
-					// Set the stylesheet to dark/standard if the Cookie is set
-					if(Cookies.get('theme-stylesheet') == 'main-dark') {
-						$("#night-toggle").prop('checked', true);
-						$("head link#theme").attr("href", '/css/main-dark.css');
-					} else {
-						$("head link#theme").attr("href", '/css/main.css');
-					}
-				*/
-					
-
 					// Toggle instructor notes if url contains instructor parameter
 					let searchParams = new URLSearchParams(window.location.search);
 					if(searchParams.has('instructor')) {
@@ -54,19 +44,26 @@
 
 					$("#tabs").tabs(); // jQuery UI: Enable tabbed interface
 
+					// Set the stylesheet to dark/standard if the Cookie is set
+					if(Cookies.get('theme-stylesheet') == 'light-theme') {
+						$("#night-toggle").prop('checked', false);
+						$("head link#theme").attr("href", '/css/light-theme.css');
+					} else {
+						$("#night-toggle").prop('checked', true);
+						$("head link#theme").attr("href", '/css/dark-theme.css');
+					 }
 					
-					/*
+					// Set/remove cookies when toggle is clicked
 					$("#night-toggle").click(function() {
 						if(Cookies.get('theme-stylesheet')) {
-							$("head link#theme").attr("href", '/css/main.css');
+							$("head link#theme").attr("href", '/css/dark-theme.css');
 							Cookies.remove('theme-stylesheet');
 						} else {
-							Cookies.set('theme-stylesheet', 'main-dark');
-							$("head link#theme").attr("href", '/css/main-dark.css');
+							Cookies.set('theme-stylesheet', 'light-theme');
+							$("head link#theme").attr("href", '/css/light-theme.css');
 						}
 					});
-					*/
-					
+
 				});
 			</script>
 		</head>
@@ -79,14 +76,14 @@
 	        		<li><a href="/blog">Blog</a></li>
 	        		<li><a href="/tutorials">Tutorials</a></li>
 					<li><a href="/workshops">Workshops</a></li>
-<!--					<li style="float: right;">
+					<li style="float: right;">
 						<i class="fa fa-sun-o" aria-hidden-="true"></i>
 							<label class="switch">
 								<input id="night-toggle" type="checkbox">
 								<span class="slider round"></span>
 							</label>
 						&nbsp;<i class="fa fa-moon-o" aria-hidden-="true"></i>
-					</li>-->
+					</li>
 	    		</ul>
 			</nav>
 			<div class="container">

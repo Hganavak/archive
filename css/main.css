@@ -1,6 +1,12 @@
 @import url(colorful.css);
 
+html {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
 body {
+    background-color: #061F2F;
     margin: 60px auto;
     width: 55%;
     line-height: 1.8em;
@@ -8,6 +14,7 @@ body {
     font-style: normal;
     font-size: 15px;
     color: rgb(59, 59, 59);
+    -webkit-font-smoothing: antialiased;
 }
 p {
     margin: 0 0 10px;
