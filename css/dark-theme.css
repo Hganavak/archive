@@ -19,6 +19,11 @@ code {
     color: yellow;
 }
 
+h1 {
+    font-size: 3em;
+    line-height: 1;
+}
+
 .highlight {
     border-radius: 0%;
 }
