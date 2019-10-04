@@ -6,6 +6,6 @@ title: Sam Kavanagh's Workshops
 	<ul class="workshops">
 
 	  {% for workshop in site.workshops %}
-	    <li><span>{{ workshop.date | date_to_string }}</span> » <a href="{{ workshop.url }}" title="{{ workshop.title }}">{{ workshop.title }}</a></li>
+	    <li><span>{{ workshop.date | date_to_string }}</span> » <a href="{{ workshop.url | prepend: site.baseurl }}" title="{{ workshop.title }}">{{ workshop.title }}</a></li>
 	  {% endfor %}
 	</ul>

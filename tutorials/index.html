@@ -6,6 +6,6 @@ title: Sam Kavanagh's Tutorials
 	<ul class="tutorials">
 
 	  {% for tutorial in site.tutorials %}
-	    <li><span>{{ tutorial.date | date_to_string }}</span> » <a href="{{ tutorial.url }}" title="{{ tutorial.title }}">{{ tutorial.title }}</a></li>
+	    <li><span>{{ tutorial.date | date_to_string }}</span> » <a href="{{ tutorial.url | prepend: site.baseurl }}" title="{{ tutorial.title }}">{{ tutorial.title }}</a></li>
 	  {% endfor %}
 	</ul>
