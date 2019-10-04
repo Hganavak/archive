@@ -34,7 +34,7 @@ date: 2018-10-08
 
 ...And most importantly, impress your peers who think you have to be some crazy tech-wizard to actually **want** to write your documents in Latex.
 
-<img src="/assets/workshops/latex/voldemort_laughing.gif" alt="Voldemort Laughing" class="screenshot" />
+<img src="{{ '/assets/workshops/latex/voldemort_laughing.gif' | prepend: site.baseurl }}" alt="Voldemort Laughing" class="screenshot" />
 
 ## Typical Workflow
 
@@ -64,7 +64,7 @@ However a more recent development in the Latex world is **web based** Latex edit
 
 <a href="http://overleaf.com" title="Overleaf" target="_blank">Overleaf</a> is a modern web based Latex editor that allows you to work on Latex documents anywhere in the world without needing to install any software, all you need is your browser (and an active Internet connection).
 
-<img src="/assets/workshops/latex/overleaf_homepage.png" alt="Overleaf Homepage" class="screenshot" />
+<img src="{{ '/assets/workshops/latex/overleaf_homepage.png' | prepend: site.baseurl }}" alt="Overleaf Homepage" class="screenshot" />
 
 Because it is a web based tool, it also has some other helpful features that you typically don't get from desktop-based editors, the most useful of which are:
 
@@ -146,7 +146,7 @@ That above code is a **complete** and valid Latex document. That is all you need
 
 If you were to paste the above code into Overleaf, you would see the following output PDF:
 
-<img class="screenshot bordered"  src="/assets/workshops/latex/screenshot_first_document.png" alt="Screenshot First Document" />
+<img class="screenshot bordered"  src="{{ '/assets/workshops/latex/screenshot_first_document.png' | prepend: site.baseurl }}" alt="Screenshot First Document" />
 
 The text only goes halfway across the page because we specified that this was a `twocolumn` document in the Latex command:
 
@@ -333,7 +333,7 @@ Look, Latex puts this on a new page for me!
 
 And your projects file structure should now look like this:
 
-<img src="/assets/workshops/latex/project_structure.png" alt="Project File Structure" class="screenshot" />
+<img src="{{ '/assets/workshops/latex/project_structure.png' | prepend: site.baseurl }}" alt="Project File Structure" class="screenshot" />
 
 ## The \input{} Command
 <div class="instructor_note">Explain how we use \input{} to include the content of our files</div>
@@ -388,7 +388,7 @@ If you <b>are</b> interested in Latex's figure plotting abilities, check out the
 <div class="instructor_note">I've created a figure for you use</div>
 <div class="instructor_note">Demonstrate creating a new figures/ folder, downloading + uploading image</div>
 
-I've gone ahead and created a simple graph for us to use as an example. Save a copy of the image to your personal computer by <a download="latex-vs-word.png" href="/assets/workshops/latex/latex-vs-word.png" title="Latex vs Word"> clicking here </a> (if the link doesn't work try <a href="/assets/workshops/latex/latex-vs-word.png" alt="Latex vs Word">this instead</a>). **Make sure you save the image somewhere you can find again!**
+I've gone ahead and created a simple graph for us to use as an example. Save a copy of the image to your personal computer by <a download="latex-vs-word.png" href="{{ '/assets/workshops/latex/latex-vs-word.png' | prepend: site.baseurl }}" title="Latex vs Word"> clicking here </a> (if the link doesn't work try <a href="{{ '/assets/workshops/latex/latex-vs-word.png' | prepend: site.baseurl }}" alt="Latex vs Word">this instead</a>). **Make sure you save the image somewhere you can find again!**
 
 Back in Overleaf, let's create a new folder to save our figures. `figures` seems like the logical choice here! Make sure you **don't** create this folder inside the `chapters` folder, to be safe try clicking the `main.tex` file before clicking the `New Folder` icon.
 
@@ -396,7 +396,7 @@ After we have our new folder it's time to upload our existing figure. Click on t
 
 If it looks like your file hasn't uploaded, try clicking the little `>` (expand) icon to the left of the `figures` folder. After you're all done your new project structure should look like this:
 
-<img src="/assets/workshops/latex/project_structure2.png" alt="Project File Structure" class="screenshot" />
+<img src="{{ '/assets/workshops/latex/project_structure2.png' | prepend: site.baseurl }}" alt="Project File Structure" class="screenshot" />
 
 ### The Figure Environment and Packages
 
@@ -496,7 +496,7 @@ The last thing our figure needs is a caption, let's add one now with (unsurprisi
 
 That's it! Your finished figure should look something like this:
 
-<img src="/assets/workshops/latex/figure_screenshot.png" alt="Screenshot of finished figure" class="screenshot bordered" />
+<img src="{{ '/assets/workshops/latex/figure_screenshot.png' | prepend: site.baseurl }}" alt="Screenshot of finished figure" class="screenshot bordered" />
 
 ### Cross-Referencing our image
 
@@ -544,7 +544,7 @@ That's it! From the readers point of view nothing has changed, but we can insert
 
 The `\label{}` and `\ref{}` commands, and the ability to tell Latex exactly where you want a figure to be placed is a huge deal when you're working with theses. Unlike your poor Word-using friends, rearranging chapters, sections, figures, or breaking up your content into smaller files as you see fit becomes no big deal.
 
-<img src="/assets/workshops/latex/voldemort_hug.gif" alt="Latex and Word User" class="screenshot" />
+<img src="{{ '/assets/workshops/latex/voldemort_hug.gif' | prepend: site.baseurl }}" alt="Latex and Word User" class="screenshot" />
 
 ## Footnotes
 
@@ -599,7 +599,7 @@ If instead we want our figures to be numbered and appear on their own line (much
 
 Your introduction chapter should now look like this:
 
-<img src="/assets/workshops/latex/equation_environment.png" class="screenshot bordered" alt="Equation environment in our introduction chapter">
+<img src="{{ '/assets/workshops/latex/equation_environment.png' | prepend: site.baseurl }}" class="screenshot bordered" alt="Equation environment in our introduction chapter">
 
 ## Comments
 
@@ -716,11 +716,11 @@ Existing research has demonstrated that a basic understanding of Latex allows it
 
 That's it! In the outputted PDF Latex will replace the `\cite{}` with a citation corresponding to the style we specified in the `\bibliographystyle{}` command. Because we're using the `acm` style, your *Introduction* chapter should now look like this:
 
-<img src="/assets/workshops/latex/citation.png" title="Citation Example" class="screenshot bordered" />
+<img src="{{ '/assets/workshops/latex/citation.png' | prepend: site.baseurl }}" title="Citation Example" class="screenshot bordered" />
 
 And even better, your *References* section should have been updated now that you cited something:
 
-<img src="/assets/workshops/latex/bibliography.png" title="Bibliography Example" class="screenshot bordered" />
+<img src="{{ '/assets/workshops/latex/bibliography.png' | prepend: site.baseurl }}" title="Bibliography Example" class="screenshot bordered" />
 
 <div class="instructor_note">Demonstrate getting a BibTeX entry from Google Scholar.</div>
 
@@ -758,7 +758,7 @@ Easy peasy! These lists will continue to update automatically as we add to our d
     The project you just made looks professional, and is an excellent starting point to build upon for a real thesis!
 </p>
 <p>
-    <img src="/assets/workshops/latex/harry_potter_clapping.gif" title="Harry Potter Clapping" class="screenshot" />
+    <img src="{{ '/assets/workshops/latex/harry_potter_clapping.gif' | prepend: site.baseurl }}" title="Harry Potter Clapping" class="screenshot" />
 </p>
 <p>
     Even if you're <b><i>not</i></b> required to use the <span class="manual-code">UoA thesis template</span>, I recommend you follow on until the end of the workshop as you'll also learn how to use Latex <span class="manual-code">class</span> files to apply predefined styles to your whole document.
@@ -826,9 +826,9 @@ These changes are noted by the comments (`%`) below:
 
 That's all you need to get up and running with a basic version of the thesis template. You should see the fonts and general appearance of much of the document has changed and looks **very snazzy**.
 
-<img src="/assets/workshops/latex/template.png" title="Citation Example" class="screenshot bordered" />
+<img src="{{ '/assets/workshops/latex/template.png' | prepend: site.baseurl }}" title="Citation Example" class="screenshot bordered" />
 
-<img src="/assets/workshops/latex/gandalf.gif" title="Gandalf seeing Latex code" class="screenshot" />
+<img src="{{ '/assets/workshops/latex/gandalf.gif' | prepend: site.baseurl }}" title="Gandalf seeing Latex code" class="screenshot" />
 
 ## Handy Tools
 
@@ -921,10 +921,10 @@ Existing research has demonstrated that a basic understanding of Latex allows it
 
 {:.no_toc}
 
-<img src="/assets/workshops/latex/harry_potter_wand.gif" title="Harry Potter discovering Latex" class="screenshot" />
+<img src="{{ '/assets/workshops/latex/harry_potter_wand.gif' | prepend: site.baseurl }}" title="Harry Potter discovering Latex" class="screenshot" />
 
 Hopefully you've seen the light, and realize the potential power of Latex once you get the hang of it.
 
 If not... Well, I tried. Microsoft Word is still a thing I guess.
 
-<img src="/assets/workshops/latex/dumbledore.gif" title="Dumbledore seeing Word users" class="screenshot" />
+<img src="{{ '/assets/workshops/latex/dumbledore.gif' | prepend: site.baseurl }}" title="Dumbledore seeing Word users" class="screenshot" />
